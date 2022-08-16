@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="toykeeper.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="toykeeperdown0000" x="0" y="0" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0001" x="860" y="0" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0002" x="1720" y="0" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0003" x="2580" y="0" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0004" x="3440" y="0" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0005" x="4300" y="0" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0006" x="5160" y="0" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0007" x="6020" y="0" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0008" x="6880" y="0" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0009" x="0" y="620" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0010" x="0" y="620" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0011" x="860" y="620" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0012" x="860" y="620" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0013" x="1720" y="620" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0014" x="1720" y="620" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0015" x="2580" y="620" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0016" x="2580" y="620" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0017" x="3440" y="620" width="860" height="620"/>
+	<SubTexture name="toykeeperdown0018" x="3440" y="620" width="860" height="620"/>
+	<SubTexture name="toykeeperidle0000" x="4300" y="620" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0001" x="5309" y="620" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0002" x="6318" y="620" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0003" x="0" y="1417" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0004" x="1009" y="1417" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0005" x="2018" y="1417" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0006" x="3027" y="1417" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0007" x="4036" y="1417" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0008" x="5045" y="1417" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0009" x="6054" y="1417" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0010" x="7063" y="1417" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0011" x="0" y="2214" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0012" x="1009" y="2214" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0013" x="2018" y="2214" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0014" x="3027" y="2214" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0015" x="4036" y="2214" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0016" x="4036" y="2214" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0017" x="5045" y="2214" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0018" x="5045" y="2214" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0019" x="6054" y="2214" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0020" x="6054" y="2214" width="1009" height="797"/>
+	<SubTexture name="toykeeperidle0021" x="7063" y="2214" width="1009" height="797"/>
+	<SubTexture name="toykeeperleft0000" x="0" y="3011" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0001" x="966" y="3011" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0002" x="1932" y="3011" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0003" x="2898" y="3011" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0004" x="3864" y="3011" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0005" x="4830" y="3011" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0006" x="5796" y="3011" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0007" x="6762" y="3011" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0008" x="0" y="3850" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0009" x="966" y="3850" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0010" x="1932" y="3850" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0011" x="2898" y="3850" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0012" x="3864" y="3850" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0013" x="3864" y="3850" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0014" x="4830" y="3850" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0015" x="4830" y="3850" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0016" x="5796" y="3850" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0017" x="5796" y="3850" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0018" x="6762" y="3850" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0019" x="6762" y="3850" width="966" height="839"/>
+	<SubTexture name="toykeeperleft0020" x="0" y="4689" width="966" height="839"/>
+	<SubTexture name="toykeeperright0000" x="966" y="4689" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0001" x="2107" y="4689" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0002" x="2107" y="4689" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0003" x="3248" y="4689" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0004" x="3248" y="4689" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0005" x="4389" y="4689" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0006" x="5530" y="4689" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0007" x="6671" y="4689" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0008" x="0" y="5528" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0009" x="1141" y="5528" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0010" x="2282" y="5528" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0011" x="3423" y="5528" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0012" x="3423" y="5528" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0013" x="4564" y="5528" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0014" x="4564" y="5528" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0015" x="5705" y="5528" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0016" x="5705" y="5528" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0017" x="6846" y="5528" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0018" x="6846" y="5528" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0019" x="0" y="6224" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0020" x="0" y="6224" width="1141" height="696"/>
+	<SubTexture name="toykeeperright0021" x="1141" y="6224" width="1141" height="696"/>
+	<SubTexture name="toykeeperup0000" x="2282" y="6224" width="977" height="951" frameX="-24" frameY="0" frameWidth="1001" frameHeight="951"/>
+	<SubTexture name="toykeeperup0001" x="3259" y="6224" width="977" height="951" frameX="-24" frameY="0" frameWidth="1001" frameHeight="951"/>
+	<SubTexture name="toykeeperup0002" x="3259" y="6224" width="977" height="951" frameX="-24" frameY="0" frameWidth="1001" frameHeight="951"/>
+	<SubTexture name="toykeeperup0003" x="4236" y="6224" width="991" height="951" frameX="-10" frameY="0" frameWidth="1001" frameHeight="951"/>
+	<SubTexture name="toykeeperup0004" x="5227" y="6224" width="1001" height="951"/>
+	<SubTexture name="toykeeperup0005" x="5227" y="6224" width="1001" height="951"/>
+	<SubTexture name="toykeeperup0006" x="6228" y="6224" width="998" height="951" frameX="-3" frameY="0" frameWidth="1001" frameHeight="951"/>
+	<SubTexture name="toykeeperup0007" x="0" y="7175" width="997" height="951" frameX="-4" frameY="0" frameWidth="1001" frameHeight="951"/>
+	<SubTexture name="toykeeperup0008" x="997" y="7175" width="997" height="951" frameX="-4" frameY="0" frameWidth="1001" frameHeight="951"/>
+	<SubTexture name="toykeeperup0009" x="1994" y="7175" width="997" height="951" frameX="-4" frameY="0" frameWidth="1001" frameHeight="951"/>
+	<SubTexture name="toykeeperup0010" x="2991" y="7175" width="997" height="951" frameX="-4" frameY="0" frameWidth="1001" frameHeight="951"/>
+	<SubTexture name="toykeeperup0011" x="2991" y="7175" width="997" height="951" frameX="-4" frameY="0" frameWidth="1001" frameHeight="951"/>
+	<SubTexture name="toykeeperup0012" x="3988" y="7175" width="997" height="951" frameX="-4" frameY="0" frameWidth="1001" frameHeight="951"/>
+</TextureAtlas>

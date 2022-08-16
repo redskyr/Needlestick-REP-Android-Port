@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="NEDLEESTICK.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="needlestick down0000" x="0" y="0" width="440" height="405" frameX="-8" frameY="-37" frameWidth="457" frameHeight="443"/>
+	<SubTexture name="needlestick down0001" x="0" y="0" width="440" height="405" frameX="-8" frameY="-37" frameWidth="457" frameHeight="443"/>
+	<SubTexture name="needlestick down0002" x="440" y="0" width="454" height="429" frameX="-1" frameY="-13" frameWidth="457" frameHeight="443"/>
+	<SubTexture name="needlestick down0003" x="440" y="0" width="454" height="429" frameX="-1" frameY="-13" frameWidth="457" frameHeight="443"/>
+	<SubTexture name="needlestick down0004" x="440" y="0" width="454" height="429" frameX="-1" frameY="-13" frameWidth="457" frameHeight="443"/>
+	<SubTexture name="needlestick down0005" x="894" y="0" width="457" height="443"/>
+	<SubTexture name="needlestick left0000" x="1351" y="0" width="494" height="478" frameX="0" frameY="-13" frameWidth="498" frameHeight="491"/>
+	<SubTexture name="needlestick left0001" x="1351" y="0" width="494" height="478" frameX="0" frameY="-13" frameWidth="498" frameHeight="491"/>
+	<SubTexture name="needlestick left0002" x="1845" y="0" width="491" height="489" frameX="-7" frameY="-2" frameWidth="498" frameHeight="491"/>
+	<SubTexture name="needlestick left0003" x="1845" y="0" width="491" height="489" frameX="-7" frameY="-2" frameWidth="498" frameHeight="491"/>
+	<SubTexture name="needlestick left0004" x="1845" y="0" width="491" height="489" frameX="-7" frameY="-2" frameWidth="498" frameHeight="491"/>
+	<SubTexture name="needlestick left0005" x="2336" y="0" width="482" height="491" frameX="-16" frameY="0" frameWidth="498" frameHeight="491"/>
+	<SubTexture name="needlestick right0000" x="2818" y="0" width="471" height="418" frameX="-1" frameY="-1" frameWidth="472" frameHeight="419"/>
+	<SubTexture name="needlestick right0001" x="2818" y="0" width="471" height="418" frameX="-1" frameY="-1" frameWidth="472" frameHeight="419"/>
+	<SubTexture name="needlestick right0002" x="3289" y="0" width="436" height="417" frameX="-1" frameY="-2" frameWidth="472" frameHeight="419"/>
+	<SubTexture name="needlestick right0003" x="3289" y="0" width="436" height="417" frameX="-1" frameY="-2" frameWidth="472" frameHeight="419"/>
+	<SubTexture name="needlestick right0004" x="3289" y="0" width="436" height="417" frameX="-1" frameY="-2" frameWidth="472" frameHeight="419"/>
+	<SubTexture name="needlestick right0005" x="3725" y="0" width="427" height="419" frameX="0" frameY="0" frameWidth="472" frameHeight="419"/>
+	<SubTexture name="needlestick up0000" x="4152" y="0" width="349" height="526" frameX="0" frameY="0" frameWidth="370" frameHeight="526"/>
+	<SubTexture name="needlestick up0001" x="4152" y="0" width="349" height="526" frameX="0" frameY="0" frameWidth="370" frameHeight="526"/>
+	<SubTexture name="needlestick up0002" x="4501" y="0" width="359" height="490" frameX="-5" frameY="-35" frameWidth="370" frameHeight="526"/>
+	<SubTexture name="needlestick up0003" x="4501" y="0" width="359" height="490" frameX="-5" frameY="-35" frameWidth="370" frameHeight="526"/>
+	<SubTexture name="needlestick up0004" x="4501" y="0" width="359" height="490" frameX="-5" frameY="-35" frameWidth="370" frameHeight="526"/>
+	<SubTexture name="needlestick up0005" x="4860" y="0" width="365" height="480" frameX="-5" frameY="-44" frameWidth="370" frameHeight="526"/>
+	<SubTexture name="sonic idle0000" x="5225" y="0" width="375" height="486" frameX="-3" frameY="0" frameWidth="409" frameHeight="486"/>
+	<SubTexture name="sonic idle0001" x="5225" y="0" width="375" height="486" frameX="-3" frameY="0" frameWidth="409" frameHeight="486"/>
+	<SubTexture name="sonic idle0002" x="5600" y="0" width="387" height="480" frameX="-22" frameY="-6" frameWidth="409" frameHeight="486"/>
+	<SubTexture name="sonic idle0003" x="5600" y="0" width="387" height="480" frameX="-22" frameY="-6" frameWidth="409" frameHeight="486"/>
+	<SubTexture name="sonic idle0004" x="5987" y="0" width="382" height="472" frameX="-25" frameY="-14" frameWidth="409" frameHeight="486"/>
+	<SubTexture name="sonic idle0005" x="5987" y="0" width="382" height="472" frameX="-25" frameY="-14" frameWidth="409" frameHeight="486"/>
+	<SubTexture name="sonic idle0006" x="6369" y="0" width="381" height="472" frameX="-19" frameY="-14" frameWidth="409" frameHeight="486"/>
+	<SubTexture name="sonic idle0007" x="6750" y="0" width="373" height="478" frameX="-4" frameY="-8" frameWidth="409" frameHeight="486"/>
+	<SubTexture name="sonic idle0008" x="6750" y="0" width="373" height="478" frameX="-4" frameY="-8" frameWidth="409" frameHeight="486"/>
+	<SubTexture name="sonic idle0009" x="7123" y="0" width="371" height="480" frameX="-3" frameY="-6" frameWidth="409" frameHeight="486"/>
+	<SubTexture name="sonic idle0010" x="7494" y="0" width="371" height="484" frameX="0" frameY="-2" frameWidth="409" frameHeight="486"/>
+	<SubTexture name="sonic idle0011" x="0" y="526" width="371" height="484" frameX="0" frameY="-2" frameWidth="409" frameHeight="486"/>
+	<SubTexture name="sonic idle0012" x="371" y="526" width="371" height="485" frameX="0" frameY="-1" frameWidth="409" frameHeight="486"/>
+	<SubTexture name="sonic idle0013" x="371" y="526" width="371" height="485" frameX="0" frameY="-1" frameWidth="409" frameHeight="486"/>
+	<SubTexture name="sonic idle0014" x="371" y="526" width="371" height="485" frameX="0" frameY="-1" frameWidth="409" frameHeight="486"/>
+</TextureAtlas>

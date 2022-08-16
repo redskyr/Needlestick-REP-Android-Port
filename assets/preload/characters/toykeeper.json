@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				-37,
+				-28
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "toykeeperidle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				55,
+				20
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "toykeeperleft",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-38,
+				-246
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "toykeeperdown",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				43,
+				142
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "toykeeperup",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-48,
+				-143
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "toykeeperright",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/toykeeper",
+	"position": [
+		-210,
+		-100
+	],
+	"healthicon": "toykeeper",
+	"flip_x": false,
+	"healthbar_colors": [
+		45,
+		45,
+		45
+	],
+	"camera_position": [
+		-30,
+		140
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
