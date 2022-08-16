@@ -429,6 +429,10 @@ class PlayState extends MusicBeatState
 					curStage = 'mall';
 				case 'winter-horrorland':
 					curStage = 'mallEvil';
+				case 'castoff' | 'acupuncture' | 'toykeeper':
+					curStage = 'alley';
+				case 'lumbered-hills':
+					curStage = 'snow';
 				case 'senpai' | 'roses':
 					curStage = 'school';
 				case 'thorns':
@@ -613,6 +617,62 @@ class PlayState extends MusicBeatState
 				fastCar = new BGSprite('limo/fastCarLol', -300, 160);
 				fastCar.active = true;
 				limoKillingState = 0;
+			case 'alley':
+				var back:BGSprite = new BGSprite('backgrounds/alley/Wall', -600, -300);
+				back.scale.set(1,1);
+				back.scrollFactor.set(1,1);
+				//add(back);
+	
+				var front:BGSprite = new BGSprite('backgrounds/alley/sky', -600, -300);
+				front.scale.set(1,1);
+				front.scrollFactor.set(1,1);
+					//add(front);
+		
+				var plank:BGSprite = new BGSprite('backgrounds/alley/plank', 1200, 700, true);
+				plank.scale.set(1,1);
+				plank.scrollFactor.set(1,1);
+					//add(plank);
+
+				add(front);
+				add(back);
+				add(gfGroup);
+				add(boyfriendGroup);
+				add(dadGroup); //dunno if this worsk
+				add(plank);
+			case 'snow':
+				var snowsky:BGSprite = new BGSprite('backgrounds/snow/sky', -600, -1100);
+				snowsky.scale.set(1,1);
+				snowsky.scrollFactor.set(1,1);
+					//add(back);
+	
+				var snowmount:BGSprite = new BGSprite('backgrounds/snow/mountains', -600, -400);
+				snowmount.scale.set(1,1);
+				snowmount.scrollFactor.set(1,1);
+					//add(front);
+		
+				var snowfloor:BGSprite = new BGSprite('backgrounds/snow/floorback', -600, 100);
+				snowfloor.scale.set(1,1);
+				snowfloor.scrollFactor.set(1,1);
+					//add(plank);
+
+				var snowfront:BGSprite = new BGSprite('backgrounds/snow/floorfront', -700, 400);
+				snowfront.scale.set(1,1);
+				snowfront.scrollFactor.set(1,1);
+					//add(plank);
+
+				var snowdark:BGSprite = new BGSprite('backgrounds/snow/dark', -600, -300, true);
+				snowfront.scale.set(1,1);
+				snowfront.scrollFactor.set(1,1);
+					//add(plank);
+
+				add(snowsky);
+				add(snowmount);
+				add(snowfloor);
+				add(snowfront);
+				add(gfGroup);
+				add(boyfriendGroup);
+				add(dadGroup); //dunno if this worsk
+				add(snowdark);
 
 			case 'mall': //Week 5 - Cocoa, Eggnog
 				var bg:BGSprite = new BGSprite('christmas/bgWalls', -1000, -500, 0.2, 0.2);

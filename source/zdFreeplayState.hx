@@ -42,7 +42,6 @@ class FreeplayState extends MusicBeatState
 	var intendedRating:Float = 0;
 	var songname:FlxText;
 
-
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
 
@@ -54,8 +53,8 @@ class FreeplayState extends MusicBeatState
 
 	override function create()
 	{
-		//Paths.clearStoredMemory();
-		//Paths.clearUnusedMemory();
+		Paths.clearStoredMemory();
+		Paths.clearUnusedMemory();
 		
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;
@@ -63,16 +62,13 @@ class FreeplayState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Selecting files", null);
 		#end
 
 		for (i in 0...WeekData.weeksList.length) {
-			if(weekIsLocked(WeekData.weeksList[i])) continue;
-
 			var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
 			var leSongs:Array<String> = [];
 			var leChars:Array<String> = [];
-
 			for (j in 0...leWeek.songs.length)
 			{
 				leSongs.push(leWeek.songs[j][0]);
@@ -117,8 +113,17 @@ class FreeplayState extends MusicBeatState
 			songText.isMenuItem = true;
 			songText.targetY = i;
 			grpSongs.add(songText);
-			songText.visible = false;
+			songText.visible= false;
+			//grpSongs.screenCenter(X);
 
+		/*	if (Patchwork.visible && FlxG.mouse.overlaps(Patchwork) && FlxG.mouse.justPressed)
+				{
+					PlayState.SONG = Song.loadFromJson("ghostbusterz-hard", "ghostbusterz");
+					PlayState.isStoryMode = false;
+					LoadingState.loadAndSwitchState(new PlayState());
+				} check this code tomorrow for sure - Vasalto
+
+*/ 
 			if (songText.width > 980)
 			{
 				var textScale:Float = 980 / songText.width;
@@ -144,26 +149,26 @@ class FreeplayState extends MusicBeatState
 
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
-			// songText.screenCenter(X);
 		}
 
 		
 		songname = new FlxText(0, 320, 0, 'fuckyou', 72);
 		songname.screenCenter(X);
-		songname.setFormat(Paths.font("vcr.ttf"), 88, FlxColor.WHITE, RIGHT);
-		songname.color = 0xFFFFFF;
-		songname.setBorderStyle(OUTLINE, FlxColor.BLACK, 3, 1);
+		songname.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.BLUE, RIGHT);
+		songname.color = 0x54B6D9;
+		//songname.setBorderStyle(OUTLINE, FlxColor.BLACK, 3, 1);
 		songname.antialiasing = ClientPrefs.globalAntialiasing;
 		add(songname);
+
 
 		WeekData.setDirectoryFromWeek();
 
 		scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
-		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
+		scoreText.setFormat(Paths.font("modernism.ttf"), 32, FlxColor.WHITE, RIGHT);
 		scoreText.screenCenter(X);
 		scoreBG = new FlxSprite(scoreText.x - 6, 0).makeGraphic(1, 66, 0xFF000000);
 		scoreBG.alpha = 0.6;
-		//add(scoreBG);
+		//FUCK SCORE BGadd(scoreBG);
 
 		diffText = new FlxText(scoreText.x, scoreText.y + 36, 0, "", 24);
 		diffText.font = scoreText.font;
@@ -215,7 +220,7 @@ class FreeplayState extends MusicBeatState
 		var size:Int = 18;
 		#end
 		var text:FlxText = new FlxText(textBG.x, textBG.y + 4, FlxG.width, leText, size);
-		text.setFormat(Paths.font("vcr.ttf"), size, FlxColor.WHITE, RIGHT);
+		text.setFormat(Paths.font("modernism.ttf"), size, FlxColor.WHITE, RIGHT);
 		text.scrollFactor.set();
 		//add(text);
 		super.create();
@@ -230,11 +235,6 @@ class FreeplayState extends MusicBeatState
 	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int)
 	{
 		songs.push(new SongMetadata(songName, weekNum, songCharacter, color));
-	}
-
-	function weekIsLocked(name:String):Bool {
-		var leWeek:WeekData = WeekData.weeksLoaded.get(name);
-		return (!leWeek.startUnlocked && leWeek.weekBefore.length > 0 && (!StoryMenuState.weekCompleted.exists(leWeek.weekBefore) || !StoryMenuState.weekCompleted.get(leWeek.weekBefore)));
 	}
 
 	/*public function addWeek(songs:Array<String>, weekNum:Int, weekColor:Int, ?songCharacters:Array<String>)
@@ -254,7 +254,7 @@ class FreeplayState extends MusicBeatState
 	}*/
 
 	var instPlaying:Int = -1;
-	public static var vocals:FlxSound = null;
+	private static var vocals:FlxSound = null;
 	var holdTime:Float = 0;
 	override function update(elapsed:Float)
 	{
@@ -316,13 +316,6 @@ class FreeplayState extends MusicBeatState
 					changeSelection((checkNewHold - checkLastHold) * (controls.UI_UP ? -shiftMult : shiftMult));
 					changeDiff();
 				}
-			}
-
-			if(FlxG.mouse.wheel != 0)
-			{
-				FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
-				changeSelection(-shiftMult * FlxG.mouse.wheel, false);
-				changeDiff();
 			}
 		}
 
@@ -476,16 +469,15 @@ class FreeplayState extends MusicBeatState
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
 		intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
 		#end
-
-			
-		songname.text = songs[curSelected].songName.toUpperCase();
+		
+		songname.text = songs[curSelected].songName.toLowerCase();
 		songname.screenCenter(X);
 
 		var bullShit:Int = 0;
 
 		for (i in 0...iconArray.length)
 		{
-			iconArray[i].alpha = 0.0;
+			iconArray[i].alpha = 0;
 		}
 
 		iconArray[curSelected].alpha = 1;
@@ -550,7 +542,7 @@ class FreeplayState extends MusicBeatState
 	}
 
 	private function positionHighscore() {
-			//scoreText.x = FlxG.width - scoreText.width - 260; //original value 60
+		//scoreText.x = FlxG.width - scoreText.width - 260; //original value 60
 		scoreText.screenCenter(X); //mf how many times i have been trying to luck ewith this shit
 		scoreBG.scale.x = FlxG.width - scoreText.x + 6;
 		scoreBG.x = FlxG.width - (scoreBG.scale.x / 2);
