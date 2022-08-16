@@ -1,0 +1,44 @@
+{
+	"song": {
+		"speed": 2.8,
+		"stage": "Alley",
+		"player1": "bf",
+		"player2": "needlestick",
+		"player3": null,
+		"events": [
+			[
+				64000,
+				[
+					[
+						"Change Character",
+						"1",
+						"stick"
+					],
+					[
+						"curse of the darkness",
+						"400",
+						"0.01"
+					]
+				]
+			],
+			[
+				64400,
+				[
+					[
+						"Set Cam Zoom",
+						"1.6",
+						"10"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": "noteSplashes",
+		"validScore": false,
+		"gfVersion": "gf",
+		"bpm": 150,
+		"arrowSkin": "",
+		"needsVoices": true,
+		"song": "acupuncture"
+	}
+}

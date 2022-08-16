@@ -1,0 +1,49 @@
+{
+	"song": {
+		"speed": 2.7,
+		"stage": "Alley",
+		"player1": "bf",
+		"player2": "needlestick",
+		"player3": null,
+		"events": [
+			[
+				33882.3529411765,
+				[
+					[
+						"Set Cam Zoom",
+						"0.5",
+						"2.5"
+					]
+				]
+			],
+			[
+				36705.8823529412,
+				[
+					[
+						"Set Cam Zoom",
+						"0.5",
+						"2.5"
+					]
+				]
+			],
+			[
+				39529.4117647059,
+				[
+					[
+						"Set Cam Zoom",
+						"0.5",
+						"2.5"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": "noteSplashes",
+		"validScore": false,
+		"gfVersion": "gf",
+		"bpm": 170,
+		"arrowSkin": "",
+		"needsVoices": true,
+		"song": "Toykeeper"
+	}
+}
