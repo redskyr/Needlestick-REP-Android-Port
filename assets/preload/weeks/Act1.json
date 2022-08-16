@@ -1,0 +1,43 @@
+{
+	"storyName": "needlestick",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"needstick",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"Castoff",
+			"needlestick",
+			[
+				5,
+				0,
+				77
+			]
+		],
+		[
+			"Acupuncture",
+			"tick",
+			[
+				45,
+				0,
+				77
+			]
+		],
+		[
+			"Toykeeper",
+			"toykeeper",
+			[
+				0,
+				0,
+				0
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "Needlestick"
+}
