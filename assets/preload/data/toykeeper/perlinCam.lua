@@ -32,6 +32,16 @@ end
 local totalElapsedX = 0
 local totalElapsedY = 0
 
+function onUpdate(elapsed)
+	if curStep >= 0 then
+	  songPos = getSongPosition()
+	  local currentBeat = (songPos/1000)*(bpm/120)
+	  doTweenY(dadTweenYEE, 'dad', 4-5*(noise(0, totalElapsedY, 0) * perlinMult),0.001)
+      --+doTweenX(dadTweenX, 'dad', 4*(noise(totalElapsedX, 0, 0) * perlinMult),0.001)
+	end
+end
+
+
 function onUpdatePost(elapsed)
     totalElapsedX = (totalElapsedX + (elapsed * (getRandomInt(1, 255) / 255)))
     totalElapsedY = (totalElapsedY + (elapsed * (getRandomInt(1, 255) / 255)))

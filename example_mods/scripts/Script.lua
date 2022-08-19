@@ -8,7 +8,7 @@ function onCreate()
 	addCharacterToList('bfITSNOTYOU', 'boyfriend')
 
 	if difficulty == 2 then
-		Max = 25
+		Max = 35
 	elseif difficulty == 0 then
 		Max = 75
 	elseif difficulty == 1 then
@@ -55,6 +55,8 @@ function onCreatePost()
 	addLuaText('info')
 	setProperty('info.alpha', 1);
 	setProperty('info.y', 400);
+	doTweenAlpha('info', 'info', 0, 15, 'quintOut');
+
 end
 
 --function onBeatHit()
@@ -62,29 +64,22 @@ end
 --		doTweenAlpha('info', 'info', 1, 0.8, 'quintOut');
 --	elseif curBeat == 10 then
 --		doTweenAlpha('info', 'info', 0.001, 2, 'quintOut');
-	
-	if songName == 'acupuncture' then
-
-		if getProperty('curBeat') == 160 then
-			setPropertyFromGroup('opponentStrums',0,'alpha',0)
-			setPropertyFromGroup('opponentStrums',1,'alpha',0)
-			setPropertyFromGroup('opponentStrums',2,'alpha',0)
-			setPropertyFromGroup('opponentStrums',3,'alpha',0)
-			--strums bf
-			setPropertyFromGroup('playerStrums',0,'alpha',0)
-			setPropertyFromGroup('playerStrums',1,'alpha',0)
-			setPropertyFromGroup('playerStrums',2,'alpha',0)
-			setPropertyFromGroup('playerStrums',3,'alpha',0)
-
-  	 	elseif getProperty('curBeat') == 190 then
-			--strums bf
-			setPropertyFromGroup('playerStrums',0,'alpha',1)
-			setPropertyFromGroup('playerStrums',1,'alpha',1)
-			setPropertyFromGroup('playerStrums',2,'alpha',1)
-			setPropertyFromGroup('playerStrums',3,'alpha',1)	
-			end
+	--function onSonStart()
+		--if songName == 'acupuncture' then
+	--if getProperty('songMisses') > 0 then
+		--loadSong('toykeeper', 2)
+	--end
+	function onSongEnd()
+		if isStoryMode then		
+			if songName == 'acupuncture' then
+				if getProperty('songMisses') > 30 then
+			
+					loadSong('bad-end', 2);
+					return Function_Stop;
+				end
+			end--return Function_Continue;
+		end
 	end
-
 	function onBeatHit()
 		if songName == 'castoff' then
 	--Luego arreglo esto, Reminder
@@ -117,7 +112,28 @@ end
 		
 			elseif getProperty('curBeat') == 238 then
 				doTweenAlpha('hudAlpha', 'camHUD', 1, 0.9, 'quintOut');
+				--acupuncture
 			end
+			if songName == 'acupuncture' then
+				if getProperty('curBeat') == 160 then
+					setPropertyFromGroup('opponentStrums',0,'alpha',0)
+					setPropertyFromGroup('opponentStrums',1,'alpha',0)
+					setPropertyFromGroup('opponentStrums',2,'alpha',0)
+					setPropertyFromGroup('opponentStrums',3,'alpha',0)
+				--strums bf
+					setPropertyFromGroup('playerStrums',0,'alpha',0)
+					setPropertyFromGroup('playerStrums',1,'alpha',0)
+					setPropertyFromGroup('playerStrums',2,'alpha',0)
+					setPropertyFromGroup('playerStrums',3,'alpha',0)
+	
+				   elseif getProperty('curBeat') == 190 then
+					--strums bf
+					setPropertyFromGroup('playerStrums',0,'alpha',1)
+					setPropertyFromGroup('playerStrums',1,'alpha',1)
+					setPropertyFromGroup('playerStrums',2,'alpha',1)
+					setPropertyFromGroup('playerStrums',3,'alpha',1)	
+				   end
+				end
 		end
 	end
 --static
