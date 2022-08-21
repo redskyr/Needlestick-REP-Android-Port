@@ -14,18 +14,18 @@
 			"Castoff",
 			"needlestick",
 			[
-				5,
 				0,
-				77
+				120,
+				197
 			]
 		],
 		[
 			"Acupuncture",
-			"tick",
+			"needlestick2",
 			[
-				45,
 				0,
-				77
+				40,
+				255
 			]
 		],
 		[

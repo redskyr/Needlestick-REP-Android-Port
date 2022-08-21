@@ -1,59 +1,59 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				-37,
 				-28
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "stickidle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "stickidle"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				115,
 				20
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "stickleft",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "stickleft"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-108,
 				-206
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "stickdown",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "stickdown"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-47,
 				152
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "stickup",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "stickup"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-328,
 				-143
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "stickright",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "stickright"
 		}
 	],
 	"no_antialiasing": false,
@@ -62,12 +62,12 @@
 		40,
 		-30
 	],
-	"healthicon": "tick",
+	"healthicon": "needlestick2",
 	"flip_x": false,
 	"healthbar_colors": [
-		0,
-		0,
-		131
+		71,
+		36,
+		148
 	],
 	"camera_position": [
 		0,
