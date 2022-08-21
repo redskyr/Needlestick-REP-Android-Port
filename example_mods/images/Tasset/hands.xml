@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="hands.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="hand down l0000" x="0" y="0" width="264" height="215" frameX="-66" frameY="0" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand down l0001" x="264" y="0" width="273" height="208" frameX="-44" frameY="-8" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand down l0002" x="537" y="0" width="278" height="207" frameX="-26" frameY="-21" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand down l0003" x="815" y="0" width="281" height="202" frameX="-10" frameY="-39" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand down l0004" x="1096" y="0" width="280" height="205" frameX="0" frameY="-60" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand down l0005" x="1376" y="0" width="281" height="203" frameX="-3" frameY="-52" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand down l0006" x="1657" y="0" width="281" height="200" frameX="-7" frameY="-45" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand down l0007" x="0" y="215" width="281" height="203" frameX="-11" frameY="-37" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand idle l0000" x="281" y="215" width="268" height="209" frameX="0" frameY="-10" frameWidth="270" frameHeight="219"/>
+	<SubTexture name="hand idle l0001" x="549" y="215" width="268" height="213" frameX="-2" frameY="-4" frameWidth="270" frameHeight="219"/>
+	<SubTexture name="hand idle l0002" x="817" y="215" width="265" height="214" frameX="-4" frameY="-2" frameWidth="270" frameHeight="219"/>
+	<SubTexture name="hand idle l0003" x="1082" y="215" width="264" height="215" frameX="-5" frameY="-1" frameWidth="270" frameHeight="219"/>
+	<SubTexture name="hand idle l0004" x="1346" y="215" width="264" height="214" frameX="-5" frameY="-1" frameWidth="270" frameHeight="219"/>
+	<SubTexture name="hand idle l0005" x="0" y="0" width="264" height="215" frameX="-5" frameY="0" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand idle l0006" x="0" y="0" width="264" height="215" frameX="-5" frameY="0" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand idle l0007" x="0" y="0" width="264" height="215" frameX="-5" frameY="0" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand idle l0008" x="0" y="0" width="264" height="215" frameX="-5" frameY="0" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand idle l0009" x="0" y="0" width="264" height="215" frameX="-5" frameY="0" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand idle l0010" x="0" y="0" width="264" height="215" frameX="-5" frameY="0" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand idle l0011" x="0" y="0" width="264" height="215" frameX="-5" frameY="0" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand idle l0012" x="0" y="0" width="264" height="215" frameX="-5" frameY="0" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand idle l0013" x="0" y="0" width="264" height="215" frameX="-5" frameY="0" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand idle l0014" x="0" y="0" width="264" height="215" frameX="-5" frameY="0" frameWidth="330" frameHeight="265"/>
+	<SubTexture name="hand up l0000" x="1610" y="215" width="337" height="324" frameX="0" frameY="-234" frameWidth="595" frameHeight="558"/>
+	<SubTexture name="hand up l0001" x="0" y="539" width="338" height="318" frameX="-31" frameY="-202" frameWidth="595" frameHeight="558"/>
+	<SubTexture name="hand up l0002" x="338" y="539" width="336" height="315" frameX="-64" frameY="-169" frameWidth="595" frameHeight="558"/>
+	<SubTexture name="hand up l0003" x="674" y="539" width="332" height="310" frameX="-98" frameY="-138" frameWidth="595" frameHeight="558"/>
+	<SubTexture name="hand up l0004" x="1006" y="539" width="325" height="306" frameX="-134" frameY="-106" frameWidth="595" frameHeight="558"/>
+	<SubTexture name="hand up l0005" x="1331" y="539" width="316" height="303" frameX="-172" frameY="-74" frameWidth="595" frameHeight="558"/>
+	<SubTexture name="hand up l0006" x="1647" y="539" width="319" height="300" frameX="-210" frameY="-43" frameWidth="595" frameHeight="558"/>
+	<SubTexture name="hand up l0007" x="0" y="857" width="319" height="295" frameX="-250" frameY="-15" frameWidth="595" frameHeight="558"/>
+	<SubTexture name="hand up l0008" x="319" y="857" width="315" height="291" frameX="-280" frameY="-14" frameWidth="595" frameHeight="558"/>
+	<SubTexture name="hand up l0009" x="634" y="857" width="317" height="302" frameX="-219" frameY="-2" frameWidth="595" frameHeight="558"/>
+	<SubTexture name="hand up l0010" x="951" y="857" width="332" height="309" frameX="-166" frameY="-1" frameWidth="595" frameHeight="558"/>
+	<SubTexture name="hand up l0011" x="1283" y="857" width="338" height="321" frameX="-123" frameY="0" frameWidth="595" frameHeight="558"/>
+	<SubTexture name="hand up l0012" x="1621" y="857" width="328" height="334" frameX="-92" frameY="0" frameWidth="595" frameHeight="558"/>
+</TextureAtlas>
