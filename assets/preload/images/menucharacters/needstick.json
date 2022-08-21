@@ -1,0 +1,10 @@
+{
+	"idle_anim": "needlestick idle",
+	"confirm_anim": "needlestick idle",
+	"position": [
+		-270,
+		50
+	],
+	"scale": 1,
+	"image": "Menu_needstick"
+}
