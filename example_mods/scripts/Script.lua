@@ -69,17 +69,17 @@ end
 	--if getProperty('songMisses') > 0 then
 		--loadSong('toykeeper', 2)
 	--end
-	function onSongEnd()
-		if isStoryMode then		
-			if songName == 'acupuncture' then
-				if getProperty('songMisses') > 30 then
+	--function onSongEnd()
+		--if isStoryMode then		
+		--	if songName == 'acupuncture' then
+		--		if getProperty('songMisses') > 30 then
 			
-					loadSong('bad-end', 2);
-					return Function_Stop;
-				end
-			end--return Function_Continue;
-		end
-	end
+			--		loadSong('bad-end', 2);
+			--		return Function_Stop;
+			--	end
+			--end--return Function_Continue;
+		--end
+	--end
 	function onBeatHit()
 		if songName == 'castoff' then
 	--Luego arreglo esto, Reminder
@@ -114,29 +114,16 @@ end
 				doTweenAlpha('hudAlpha', 'camHUD', 1, 0.9, 'quintOut');
 				--acupuncture
 			end
-			if songName == 'acupuncture' then
-				if getProperty('curBeat') == 160 then
-					setPropertyFromGroup('opponentStrums',0,'alpha',0)
-					setPropertyFromGroup('opponentStrums',1,'alpha',0)
-					setPropertyFromGroup('opponentStrums',2,'alpha',0)
-					setPropertyFromGroup('opponentStrums',3,'alpha',0)
-				--strums bf
-					setPropertyFromGroup('playerStrums',0,'alpha',0)
-					setPropertyFromGroup('playerStrums',1,'alpha',0)
-					setPropertyFromGroup('playerStrums',2,'alpha',0)
-					setPropertyFromGroup('playerStrums',3,'alpha',0)
-	
-				   elseif getProperty('curBeat') == 190 then
-					--strums bf
-					setPropertyFromGroup('playerStrums',0,'alpha',1)
-					setPropertyFromGroup('playerStrums',1,'alpha',1)
-					setPropertyFromGroup('playerStrums',2,'alpha',1)
-					setPropertyFromGroup('playerStrums',3,'alpha',1)	
-				   end
+		end
+		if songName == 'acupuncture' then
+	---		if isStoryMode then		
+			if getProperty('curBeat') == 300 then
+				if getProperty('songMisses') > 30 then
+					loadSong('bad-end', 2);
 				end
+			end
 		end
 	end
---static
 function noteMiss()
 	if getProperty('songMisses') == Max then
 		setProperty('health', getProperty('health')-200);
