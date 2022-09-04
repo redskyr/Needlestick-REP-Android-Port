@@ -3,11 +3,44 @@
 		{
 			"offsets": [
 				0,
-				-9
+				0
 			],
 			"loop": false,
+			"fps": 27,
+			"anim": "intro",
+			"indices": [],
+			"name": "gf intro"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 27,
+			"anim": "intro idle",
+			"indices": [
+				2,
+				2
+			],
+			"name": "gf intro"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
 			"fps": 24,
-			"anim": "danceLeft",
+			"anim": "danceRight-alt",
+			"loop": false,
+			"name": "gf right"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
 			"indices": [
 				30,
 				0,
@@ -26,6 +59,9 @@
 				13,
 				14
 			],
+			"fps": 24,
+			"anim": "danceLeft-alt",
+			"loop": false,
 			"name": "gf left"
 		},
 		{
@@ -33,21 +69,27 @@
 				0,
 				-9
 			],
-			"loop": false,
+			"indices": [
+				2,
+				2
+			],
 			"fps": 24,
-			"anim": "danceRight",
-			"indices": [],
-			"name": "gf right"
+			"anim": "danceLeft",
+			"loop": false,
+			"name": "gf intro"
 		},
 		{
 			"offsets": [
 				0,
-				0
+				-9
 			],
+			"indices": [
+				2,
+				2
+			],
+			"fps": 24,
+			"anim": "danceRight",
 			"loop": false,
-			"fps": 27,
-			"anim": "intro",
-			"indices": [],
 			"name": "gf intro"
 		}
 	],

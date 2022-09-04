@@ -1,66 +1,66 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				98,
 				-83
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "needlestick left",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "needlestick left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-5,
 				-137
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "needlestick down",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "needlestick down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				4,
 				-59
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "needlestick up",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "needlestick up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-129,
 				-154
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "needlestick right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "needlestick right"
 		},
 		{
+			"loop": true,
 			"offsets": [
 				-37,
 				-89
 			],
-			"loop": true,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "sonic idle"
+			"fps": 24,
+			"name": "sonic idle",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/needstick",
 	"position": [
-		30,
-		180
+		20,
+		190
 	],
 	"healthicon": "needlestick",
 	"flip_x": false,
@@ -70,7 +70,7 @@
 		148
 	],
 	"camera_position": [
-		40,
+		30,
 		140
 	],
 	"sing_duration": 6.1,
