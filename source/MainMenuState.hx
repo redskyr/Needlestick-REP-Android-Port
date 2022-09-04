@@ -16,6 +16,8 @@ import flixel.math.FlxMath;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import flixel.addons.display.FlxBackdrop;
+import flixel.addons.display.FlxGridOverlay;
 import lime.app.Application;
 import Achievements;
 import editors.MasterEditorMenu;
@@ -44,13 +46,19 @@ class MainMenuState extends MusicBeatState
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
+	var bgneedle:FlxObject;
+	var hitneedle:FlxObject;
+
 	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
+
+	var LMAOO:FlxBackdrop;
+
 
 	override function create()
 	{
 		WeekData.loadTheFirstEnabledMod();
-
+		FlxG.mouse.visible = true;
 		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
@@ -70,6 +78,13 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
+		LMAOO = new FlxBackdrop(Paths.image('sonic'), 0.2, 0, true, true);
+		LMAOO.velocity.set(100, 0);
+		LMAOO.updateHitbox();
+		LMAOO.alpha = 1;
+		LMAOO.screenCenter(X);
+		
+
 		var yScroll:Float = 0.00;
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('sonic'));
 		bg.scrollFactor.set(0, yScroll);
@@ -77,14 +92,23 @@ class MainMenuState extends MusicBeatState
 		bg.updateHitbox();
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
-		add(bg);
+		//add(bg);
+		add(LMAOO);
 
-		var bgneedle:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('needlebg'));
-		bgneedle.scrollFactor.set(0, yScroll);
+
+	//	/var bgneedle:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('needlebg'));
+
+		bgneedle = new FlxSprite(605, 50).loadGraphic(Paths.image('needlebg')); 
+		
+		hitneedle = new FlxSprite(900, 400).loadGraphic(Paths.image('hitne')); 
+		hitneedle.scrollFactor.set(0, 0);
+		add(hitneedle);
+
+		// hitne
+		bgneedle.scrollFactor.set(0, 0);
 		//bg.setGraphicSize(Std.int(bg.width * 1.175));
-		bgneedle.updateHitbox();
-		bgneedle.screenCenter();
-		bgneedle.antialiasing = ClientPrefs.globalAntialiasing;
+		//bgneedle.updateHitbox();
+		bgneedle.screenCenter(X);
 		add(bgneedle);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
@@ -184,7 +208,11 @@ class MainMenuState extends MusicBeatState
 
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
-
+		
+		if(FlxG.mouse.justPressed && FlxG.mouse.overlaps(hitneedle))
+			{
+				FlxG.sound.play(Paths.sound('bop'));
+			}
 		if (!selectedSomethin)
 		{
 			if (controls.UI_UP_P)
