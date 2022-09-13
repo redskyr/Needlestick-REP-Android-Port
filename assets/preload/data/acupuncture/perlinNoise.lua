@@ -77,8 +77,10 @@ function onCreate()
     tileXsize = screenWidth/resX
     tileYsize = screenHeight/resY
 
-    newSeed()
-    drawPerlinShit()
+    if getPropertyFromClass('ClientPrefs', 'shaders') then
+        newSeed()
+        drawPerlinShit()
+    end
 end
 
 function onUpdate(elp)

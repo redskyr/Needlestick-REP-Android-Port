@@ -17,32 +17,9 @@ function onCreate()
 
 	luaDebugMode = true
 	
-	--setProperty('defaultCamZoom', 0.8);
-
 	setProperty('cameraSpeed', 2.2);
 
---	setProperty('health', 2.0);
-
 	setPropertyFromClass('ClientPrefs', 'timeBarType', 'Disabled');
-
-	makeAnimatedLuaSprite('fx', 'fx', 400, 0)
-	addAnimationByPrefix('fx', 'idle', 'idle', 16, true)
-	scaleObject('fx', 3, 3)
-	setObjectCamera('fx', 'camHud')
-	playAnim('fx', 'idle', true)
-	setProperty('fx.alpha', 0)
-	
-	--addCharacterToList('toykeeper', 'boyfriend')
-	--addCharacterToList('stick', 'boyfriend')
-	
-	
-
-
-    makeLuaSprite('vignette', 'blackvignette', 0, 0);
-	setProperty('vignette.alpha', 0.8);
-	setObjectCamera('vignette', 'hud')
-	addLuaSprite('vignette', true);
-	addLuaSprite('fx', true);
 end
 
 function onCreatePost()
@@ -57,29 +34,39 @@ function onCreatePost()
 	setProperty('info.y', 400);
 	doTweenAlpha('info', 'info', 0, 15, 'quintOut');
 
+	setProperty('scoreTxt.y', 12);
+	if getPropertyFromClass('ClientPrefs', 'downScroll') == true then
+		setProperty('scoreTxt.y', 32);
+		setProperty('healthBar.y', 8);
+		else if getPropertyFromClass('ClientPrefs', 'downScroll') == false then
+			setProperty('scoreTxt.y', 660);
+			setProperty('healthBar.y', 700);
+		end
+	end
 end
 
---function onBeatHit()
---	if curBeat == 1 then
---		doTweenAlpha('info', 'info', 1, 0.8, 'quintOut');
---	elseif curBeat == 10 then
---		doTweenAlpha('info', 'info', 0.001, 2, 'quintOut');
-	--function onSonStart()
-		--if songName == 'acupuncture' then
-	--if getProperty('songMisses') > 0 then
-		--loadSong('toykeeper', 2)
-	--end
-	--function onSongEnd()
-		--if isStoryMode then		
-		--	if songName == 'acupuncture' then
-		--		if getProperty('songMisses') > 30 then
+--[[function onBeatHit()
+	if curBeat == 1 then
+		doTweenAlpha('info', 'info', 1, 0.8, 'quintOut');
+	elseif curBeat == 10 then
+		doTweenAlpha('info', 'info', 0.001, 2, 'quintOut');
+	function onSongStart()
+		if songName == 'acupuncture' then
+	if getProperty('songMisses') > 0 then
+		loadSong('toykeeper', 2)
+	end
+	function onSongEnd()
+		if isStoryMode then		
+			if songName == 'acupuncture' then
+				if getProperty('songMisses') > 30 then
 			
-			--		loadSong('bad-end', 2);
-			--		return Function_Stop;
-			--	end
-			--end--return Function_Continue;
-		--end
-	--end
+					loadSong('bad-end', 2);
+					return Function_Stop;
+				end
+		end 
+		return Function_Continue;
+		end
+	end]]
 	function onBeatHit()
 		if songName == 'castoff' then
 	--Luego arreglo esto, Reminder
@@ -115,7 +102,7 @@ end
 				--acupuncture
 			end
 		end
-		if songName == 'acupuncture' then
+		if songName == 'acupuncture' and isStoryMode then
 	---		if isStoryMode then		
 			if getProperty('curBeat') == 300 then
 				if getProperty('songMisses') > 30 then
@@ -171,7 +158,6 @@ function staticOFF()
 	playSound('stat', 0.3)
 end
 
-
 function staticBOP()
 	setProperty('fx.alpha', 0.5)
 	doTweenAlpha('staticON', 'fx', 0, 1, 'linear')
@@ -188,7 +174,6 @@ function onGameOver()
 			setPropertyFromClass('GameOverSubstate', 'loopSoundName', 'Toykeeper'); --put in mods/music/
 			setPropertyFromClass('GameOverSubstate', 'deathSoundName', 'Laugh');
 			setPropertyFromClass('GameOverSubstate', 'characterName', 'bfITSNOTYOU'); --Character json file for the death animation
-			addLuaSprite('fx', true)
 			setProperty('fx.alpha', 0.8)
     end
 end

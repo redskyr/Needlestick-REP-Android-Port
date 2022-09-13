@@ -26,7 +26,9 @@ function newSeed()
 end
 
 function onCreate()
-    newSeed()
+    if getPropertyFromClass('ClientPrefs', 'shaders') then
+        newSeed()
+    end
 end
 
 local totalElapsedX = 0

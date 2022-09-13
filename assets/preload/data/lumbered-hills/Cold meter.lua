@@ -11,7 +11,7 @@ function onCreate()
 	precacheImage('vignettes/blackvignette')
 
 	-- bar bg or smthng
-
+    characterPlayAnim('gf', 'intro', true);
 	
 	makeLuaSprite('barBlue', 'barBlue', 1231, 430)
 	makeGraphic('barBlue', 18, 1, 'FFFFFF')
@@ -20,15 +20,6 @@ function onCreate()
 	setProperty('barBlue.origin.y', 1)
 	addLuaSprite('barBlue')
 	setProperty('barBlue.scale.y', shielded)
-
-	--makeLuaSprite('cold', 'cold', 231, 430)
-	--makeGraphic('cold', 18, 5, 'FFFFFF')
-	--setProperty('cold.color', getColorFromHex('15E9FF'))
-	--setObjectCamera('cold', 'camGAME')
-	--setProperty('cold.origin.y', 1)
-	--addLuaSprite('cold')
-
-
 
 	makeLuaSprite('BFreeze', 'Cold/BigFreeze', 0, 0);
 	setProperty('BFreeze.alpha', 0.1);
@@ -44,8 +35,6 @@ function Freeze()
 	setProperty('BFreeze.alpha', 0.5);
 	colvulnerable = false 
 	playSound('freeze', 0.2)
-
-
 end
 
 function BigFreeze()
@@ -136,7 +125,7 @@ function goodNoteHit(id, direction, noteType, isSustainNote)
 			setProperty('barBlue.scale.y', barAmount)
 			end	
 			if barAmount > 275 and burst == false then
-  					barAmount=275
+				barAmount=275
 			end
 	end
 end
@@ -148,7 +137,7 @@ function noteMiss()
 		setProperty('barBlue.scale.y', barAmount)
 		end	
 		if barAmount > 275 and burst == false then
-				  barAmount=275
+			barAmount=275
 		end
 	end
 end

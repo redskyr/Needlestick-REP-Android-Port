@@ -27,6 +27,6 @@
 		"",
 		""
 	],
-	"hiddenUntilUnlocked": false,
+	"hiddenUntilUnlocked": true,
 	"weekName": "extra week"
 }

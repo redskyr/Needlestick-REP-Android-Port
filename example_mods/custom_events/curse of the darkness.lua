@@ -24,13 +24,3 @@ function onUpdate(elapsed)
 		end
 	end
 end
-
-function onCreate()--Creates the graphic
-    makeLuaSprite('curse','',-4,0)
-    makeGraphic('curse',1480,882,'000000')
-	setScrollFactor('curse',0,0)
-    setObjectCamera('curse','hud')
-	setProperty('curse.alpha', 0);
-	
-	addLuaSprite('curse',true)
-end
