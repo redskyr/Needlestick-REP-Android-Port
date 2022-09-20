@@ -112,32 +112,40 @@ end
 		end
 	end
 function noteMiss()
-	if getProperty('songMisses') == Max then
-		setProperty('health', getProperty('health')-200);
-	elseif getProperty('songMisses') == 10 then
-		setProperty('fx2.alpha', 0.2)
-	elseif getProperty('songMisses') == 15 then
-		setProperty('fx2.alpha', 0.3)
-	elseif getProperty('songMisses') == 20 then
-		setProperty('fx2.alpha', 0.4)	
-	elseif getProperty('songMisses') == 40 then
-		setProperty('fx2.alpha', 0.4)
-	elseif getProperty('songMisses') == 45 then
-		setProperty('fx2.alpha', 0.5)
-	elseif getProperty('songMisses')  > 0 then
-		staticBOP()
+	if songName == 'acupuncture' or songName == 'castoff' or songName == 'Toykeeper' or songName == 'bad-end' then
+		if getProperty('songMisses') == Max then
+			setProperty('health', getProperty('health')-200);
+		elseif getProperty('songMisses') == 10 then
+			setProperty('fx2.alpha', 0.2)
+		elseif getProperty('songMisses') == 15 then
+			setProperty('fx2.alpha', 0.3)
+		elseif getProperty('songMisses') == 20 then
+			setProperty('fx2.alpha', 0.4)	
+		elseif getProperty('songMisses') == 40 then
+			setProperty('fx2.alpha', 0.4)
+		elseif getProperty('songMisses') == 45 then
+			setProperty('fx2.alpha', 0.5)
+		elseif getProperty('songMisses')  > 0 then
+			staticBOP()
+		end
 	end
 end
 
 function onStepHit()
-	if curStep == 10 then
-		modchart = false
+	if songName == 'acupuncture' or songName == 'castoff' or songName == 'Toykeeper' or songName == 'bad-end' then
+		if curStep == 10 then
+			modchart = false
+		end
 	end
-	if curStep == 110 or curStep == 120 or curStep == 125 or curStep == 928 or curStep == 932 or curStep == 938 or curStep == 958 or curStep == 1172 or curStep == 1276 or curStep == 1282 or curStep == 1304 or curStep == 1536 or curStep == 1922 or curStep == 1937 or curStep == 1943 or curStep == 1956 then
-		staticON()
+	if songName == 'acupuncture' or songName == 'castoff' or songName == 'Toykeeper' or songName == 'bad-end' then
+		if curStep == 110 or curStep == 120 or curStep == 125 or curStep == 928 or curStep == 932 or curStep == 938 or curStep == 958 or curStep == 1172 or curStep == 1276 or curStep == 1282 or curStep == 1304 or curStep == 1536 or curStep == 1922 or curStep == 1937 or curStep == 1943 or curStep == 1956 then
+			staticON()
+		end
 	end
-	if curStep == 127 or curStep == 1024 or curStep == 1154 or curStep == 1176 or curStep == 1279 or curStep == 1300 or curStep == 1408 or curStep == 1792 or curStep == 1926 or curStep == 1940 or curStep == 1946 or curStep == 1960 then
-		staticOFF()
+	if songName == 'acupuncture' or songName == 'castoff' or songName == 'Toykeeper' or songName == 'bad-end' then
+		if curStep == 127 or curStep == 1024 or curStep == 1154 or curStep == 1176 or curStep == 1279 or curStep == 1300 or curStep == 1408 or curStep == 1792 or curStep == 1926 or curStep == 1940 or curStep == 1946 or curStep == 1960 then
+			staticOFF()
+		end
 	end
 	if curStep == 128 then
 		if songName == 'Toykeeper' then
