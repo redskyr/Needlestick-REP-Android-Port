@@ -222,6 +222,11 @@ class PlayState extends MusicBeatState
 	var blackbar1:FlxSprite;
 	var blackbar2:FlxSprite;
 
+
+	var back:BGSprite;
+	var front:BGSprite;
+	var plank:BGSprite;
+
 	public var songScore:Int = 0;
 	public var songHits:Int = 0;
 	public var songMisses:Int = 0;
@@ -391,6 +396,8 @@ class PlayState extends MusicBeatState
 					curStage = 'alley';
 				case 'lumbered-hills':
 					curStage = 'snow';
+				case 'bad-end':
+					curStage = 'badstage';
 				default:
 					curStage = 'stage';
 			}
@@ -470,7 +477,7 @@ class PlayState extends MusicBeatState
 					stageCurtains.updateHitbox();
 					add(stageCurtains);
 				}
-				dadbattleSmokes = new FlxSpriteGroup(); //troll'd
+				dadbattleSmokes = new FlxSpriteGroup();
 
 			case 'alley':
 				var back:BGSprite = new BGSprite('backgrounds/alley/Wall', -600, -300);
@@ -513,6 +520,12 @@ class PlayState extends MusicBeatState
 
 				precacheList.set('shadow', 'image');
 				precacheList.set('backgrounds/alley/Wall', 'image');
+			case 'badstage':
+
+				add(gfGroup);
+				add(dadGroup);
+				add(boyfriendGroup);
+
 			case 'snow':
 				var snowsky:BGSprite = new BGSprite('backgrounds/snow/sky', -600, -1100);
 				snowsky.scale.set(1,1);
@@ -563,7 +576,7 @@ class PlayState extends MusicBeatState
 		luaDebugGroup.cameras = [camOther];
 		add(luaDebugGroup);
 		#end
-
+		
 		// "GLOBAL" SCRIPTS
 		#if LUA_ALLOWED
 		var filesPushed:Array<String> = [];
@@ -2131,10 +2144,6 @@ class PlayState extends MusicBeatState
 		}*/
 		callOnLuas('onUpdate', [elapsed]);
 
-		switch (curStage)
-		{
-
-		}
 
 		if(!inCutscene) {
 			var lerpVal:Float = CoolUtil.boundTo(elapsed * 2.4 * cameraSpeed, 0, 1);
@@ -3017,6 +3026,7 @@ class PlayState extends MusicBeatState
 					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0] + difficulty, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
 
+					
 					if(winterHorrorlandNext) {
 						new FlxTimer().start(1.5, function(tmr:FlxTimer) {
 							cancelMusicFadeTween();
@@ -3821,6 +3831,17 @@ class PlayState extends MusicBeatState
 			//trace('BEAT HIT: ' + curBeat + ', LAST HIT: ' + lastBeatHit);
 			return;
 		}
+
+		if(curSong.toLowerCase() == 'acupuncture' && songMisses >= 5 && curBeat >= 300)
+		{
+			FlxG.sound.music.pause();
+			vocals.pause();
+			paused = true;
+			//LoadingState.loadAndSwitchState(new GhostState());
+			MusicBeatState.switchState(new GhostState());
+
+		}
+
 
 		if (generatedMusic)
 		{
