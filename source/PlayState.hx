@@ -2966,6 +2966,18 @@ class PlayState extends MusicBeatState
 				return;
 			}
 
+			if(curSong.toLowerCase() == 'acupuncture' && songMisses >= 5)
+				{	
+					transitioning = true;
+					updateTime = false;
+					FlxG.sound.music.volume = 0;
+					vocals.volume = 0;
+					vocals.pause();
+					FlxG.switchState(new GhostState()); //FIXED, runs onSongEnd
+				}
+
+				//E
+				
 			if (isStoryMode)
 			{
 				campaignScore += songScore;
@@ -3832,15 +3844,7 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
-		if(curSong.toLowerCase() == 'acupuncture' && songMisses >= 5 && curBeat >= 300)
-		{
-			FlxG.sound.music.pause();
-			vocals.pause();
-			paused = true;
-			//LoadingState.loadAndSwitchState(new GhostState());
-			MusicBeatState.switchState(new GhostState());
-
-		}
+		
 
 
 		if (generatedMusic)
