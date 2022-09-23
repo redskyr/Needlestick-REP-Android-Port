@@ -1,5 +1,5 @@
 function onCreate()
-    makeAnimatedLuaSprite('bfd', 'string', 550, -50)
+    makeAnimatedLuaSprite('bfd', 'string', 550, 50)
 	addAnimationByPrefix('bfd', 'stringstar', 'stringstar', 24, false)
 	addAnimationByPrefix('bfd', 'stringA', 'stringA', 24, false)
 
@@ -54,6 +54,8 @@ function onBeatHit()
         setProperty('bfd.x', 470)
         setProperty('bfd.y', 50)
         setProperty('dad.x', 550)
+        setProperty('dad.y', 1)
+
         objectPlayAnimation('bfd', 'stringA', true)
     end
 end
