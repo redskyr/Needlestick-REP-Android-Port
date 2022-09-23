@@ -109,35 +109,25 @@ class GhostState extends MusicBeatState
 			trace("no");
 		}
 
-		if (FlxG.mouse.overlaps(ytext))
-		{
-			trace("yoverlap");
-		}
-
-		if (FlxG.mouse.overlaps(noootext))
-		{
-			trace("noverlap");
-		}
-
 		if (FlxG.mouse.overlaps(noootext))
 		{
 			FlxG.camera.shake(0.005, 0.005);
-			FlxTween.tween(noootext.scale, {x: 1.15, y: 1.15}, 0.35, {ease: FlxEase.quadInOut, type: FlxTween.ONESHOT});
+			FlxTween.tween(noootext.scale, {x: 1.15, y: 1.15}, 0.35, {ease: FlxEase.quadInOut, type: FlxTweenType.ONESHOT});
 		}
 
 		if (FlxG.mouse.overlaps(ytext))
 		{
-			FlxTween.tween(ytext.scale, {x: 1.15, y: 1.15}, 0.35, {ease: FlxEase.quadInOut, type: FlxTween.ONESHOT});
+			FlxTween.tween(ytext.scale, {x: 1.15, y: 1.15}, 0.35, {ease: FlxEase.quadInOut, type: FlxTweenType.ONESHOT});
 		}
 
 		if (!FlxG.mouse.overlaps(noootext))
 		{
-			FlxTween.tween(noootext.scale, {x: 1, y: 1}, 0.55, {ease: FlxEase.quadInOut, type: FlxTween.ONESHOT});
+			FlxTween.tween(noootext.scale, {x: 1, y: 1}, 0.55, {ease: FlxEase.quadInOut, type: FlxTweenType.ONESHOT});
 		}
 
 		if (!FlxG.mouse.overlaps(ytext))
 		{
-			FlxTween.tween(ytext.scale, {x: 1, y: 1}, 0.55, {ease: FlxEase.quadInOut, type: FlxTween.ONESHOT});
+			FlxTween.tween(ytext.scale, {x: 1, y: 1}, 0.55, {ease: FlxEase.quadInOut, type: FlxTweenType.ONESHOT});
 		}
 
 		if (FlxG.sound.music == null)
