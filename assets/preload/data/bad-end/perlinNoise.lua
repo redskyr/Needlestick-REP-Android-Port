@@ -82,6 +82,8 @@ function onCreate()
     if getPropertyFromClass('ClientPrefs', 'shaders') then
         newSeed()
         drawPerlinShit()
+    else
+        close(true)
     end
 end
 

@@ -95,7 +95,7 @@ class GhostState extends MusicBeatState
 	{
 		super.update(elapsed);
 
-
+		//if statement central
 		if (FlxG.mouse.overlaps(ytext) && FlxG.mouse.justPressed)
 		{
 			trace("yes");

@@ -1,65 +1,65 @@
 {
 	"animations": [
 		{
-			"offsets": [
-				-347,
-				-218
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "idle",
 			"loop": false,
-			"name": "idle"
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "toykeeperidle",
+			"indices": []
 		},
 		{
 			"offsets": [
-				5,
-				-230
+				45,
+				40
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singLEFT",
-			"loop": false,
-			"name": "left"
+			"indices": [],
+			"name": "toykeeperleft"
 		},
 		{
 			"offsets": [
-				-368,
-				-266
+				-156,
+				-185
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singDOWN",
-			"loop": false,
-			"name": "down"
+			"indices": [],
+			"name": "toykeeperdown"
 		},
 		{
 			"offsets": [
-				-357,
-				52
+				3,
+				242
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singUP",
-			"loop": false,
-			"name": "up"
+			"indices": [],
+			"name": "toykeeperup"
 		},
 		{
 			"offsets": [
-				-398,
-				-243
+				-172,
+				-65
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singRIGHT",
-			"loop": false,
-			"name": "right"
+			"indices": [],
+			"name": "toykeeperright"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/tokyepeer_ojos",
+	"image": "characters/toykeeper",
 	"position": [
-		-210,
+		-250,
 		-100
 	],
 	"healthicon": "toykeeper",
@@ -67,7 +67,7 @@
 	"healthbar_colors": [
 		45,
 		45,
-		45
+		20
 	],
 	"camera_position": [
 		-30,

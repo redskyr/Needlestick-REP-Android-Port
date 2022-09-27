@@ -20,13 +20,6 @@ function onCreate()
     setObjectOrder('bfd', '1');
 
     setObjectOrder('gf', '0');
-
-  
-    
-    -- BLACK BAR STUFF  
-    setProperty('blackbar1.alpha', 0)
-    setProperty('blackbar2.alpha', 0)
-
 end
 
 function onBeatHit()
@@ -37,7 +30,7 @@ function onBeatHit()
         setProperty('dad.visible', false)
         setProperty('bfd.alpha', 0)
     elseif curBeat == 55 then
-        doTweenAlpha('bfd', 'bfd', 1, 2, 'quadInOut');
+        doTweenAlpha('bfd', 'bfd', 1, 2, 'quadInOut'); 
     elseif curBeat == 63 then
         objectPlayAnimation('bfd', 'stringA', true)
     elseif curBeat == 80 then -- FULL THING

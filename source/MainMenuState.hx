@@ -51,9 +51,9 @@ class MainMenuState extends MusicBeatState
 
 	var LMAOO:FlxBackdrop;
 
-
 	override function create()
 	{
+		trace("if you get an error while using debug mode about frame errors, ignore them those are for the story mode effect");
 		WeekData.loadTheFirstEnabledMod();
 		FlxG.mouse.visible = true;
 		#if desktop

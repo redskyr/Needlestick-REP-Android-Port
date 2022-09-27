@@ -28,6 +28,8 @@ end
 function onCreate()
     if getPropertyFromClass('ClientPrefs', 'shaders') then
         newSeed()
+    else
+        close(true)
     end
 end
 
