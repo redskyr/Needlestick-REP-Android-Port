@@ -11,8 +11,10 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import flixel.addons.display.FlxBackdrop;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
+
 #if MODS_ALLOWED
 import sys.FileSystem;
 import sys.io.File;
@@ -32,6 +34,8 @@ class CreditsState extends MusicBeatState
 	var bg:FlxSprite;
 	var descText:FlxText;
 	var intendedColor:Int;
+	var LMAOO:FlxBackdrop;
+
 	var colorTween:FlxTween;
 	var descBox:AttachedSprite;
 
@@ -43,11 +47,19 @@ class CreditsState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
+		
+		LMAOO = new FlxBackdrop(Paths.image('Chess'), 0, 0, true, true);
+		LMAOO.velocity.set(0, 100);
+		LMAOO.updateHitbox();
+		LMAOO.alpha = 1;
+		LMAOO.screenCenter(X);
 
 		persistentUpdate = true;
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		add(bg);
+		//add(bg);
 		bg.screenCenter();
+		add(LMAOO);
+
 		
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
@@ -81,6 +93,19 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
+			['Needlestick Sonic Team'],
+			['Vasalto',				'vasalto',			'Director',														'https://twitter.com/Vasalto3',			'444444'],
+			['Tet',					'tet',				'Main Artist/Animator',											'https://twitter.com/ranfringW',		'C30085'],
+			['MajorasMax_',			'majoras',			'Composer',														'https://twitter.com/MajorasMax',		'4494E6'],
+			['TheSlithyGamer4evr',	'slithy',			'Charter/Coder',												'https://www.youtube.com/channel/UCRyEPq3297h56-cubR38TGA',	'389A58'],
+			['Drawpant',			'drawpant',			'Artist',														'https://twitter.com/DrawPant',			'AA32FE'],
+			[''],
+			['Special Thanks'],
+			['Rotty',		'rotty',					'Ex-Charter',													'https://twitter.com/RottySC2',			'4494E6'],
+			['Smalltalk',		'smalltalk',			'Additional Programmer!',										'https://twitter.com/RottySC2',			'4494E6'],
+
+			[''],
+			['Former Engine Members'],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
 			['RiverOaken',			'river',			'Main Artist/Animator of Psych Engine',							'https://twitter.com/RiverOaken',		'B42F71'],

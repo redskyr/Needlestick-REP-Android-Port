@@ -3013,7 +3013,21 @@ class PlayState extends MusicBeatState
 					FlxG.switchState(new GhostState()); //FIXED, runs onSongEnd
 				}*/
 
-				//E
+				//E lui
+			if(curSong.toLowerCase() == 'acupuncture' && songMisses >= 5 /*&& isStoryMode*/) {
+				transitioning = true;
+				updateTime = false;
+				FlxG.sound.music.volume = 0;
+				vocals.volume = 0;
+				vocals.pause();
+				FlxG.switchState(new GhostState()); //FIXED, runs onSongEnd
+			} else if (curSong.toLowerCase() == 'acupuncture' && songMisses <= 4 /*&& isStoryMode*/) {
+				FlxG.sound.music.pause();
+				vocals.pause();
+				paused = true;
+				PlayState.SONG = Song.loadFromJson('toykeeper', 'toykeeper');
+			//	FlxG.switchState(new GhostState()); //FIXED, runs onSongEnd
+			}
 				
 			if (isStoryMode)
 			{
@@ -3881,18 +3895,7 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
-		if(curSong.toLowerCase() == 'acupuncture' && songMisses >= 5 && curBeat >= 300 /*&& isStoryMode*/) {
-				FlxG.sound.music.pause();
-				vocals.pause();
-				paused = true;
-				MusicBeatState.switchState(new GhostState());
-		} else if (curSong.toLowerCase() == 'acupuncture' && curBeat >= 300 && songMisses <= 4 /*&& isStoryMode*/) {
-			FlxG.sound.music.pause();
-			vocals.pause();
-			paused = true;
-			PlayState.SONG = Song.loadFromJson('toykeeper', 'toykeeper');
-			LoadingState.loadAndSwitchState(new PlayState());
-		}
+		
 
 		if (generatedMusic)
 		{
