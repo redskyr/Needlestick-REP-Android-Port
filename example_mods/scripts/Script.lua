@@ -23,18 +23,19 @@ function onCreate()
 end
 
 function onCreatePost()
-	makeLuaText('info', 'Dont Get ' .. (Max) .. (" Misses..") , 750, -35);
-    setTextBorder('info', 2, '000000');
-    setTextAlignment('info', 'right');
-    setTextFont('info', font);
-    setTextSize('info', 30.35);
-	setTextColor('info', '999999')
-	addLuaText('info')
-	setProperty('info.alpha', 1);
-	setProperty('info.y', 400);
-	doTweenAlpha('info', 'info', 0, 15, 'quintOut');
-
-	setProperty('scoreTxt.y', 12);
+	if songName == 'acupuncture' or songName == 'castoff' or songName == 'Toykeeper' or songName == 'bad-end' then
+		makeLuaText('info', 'Dont Get ' .. (Max) .. (" Misses..") , 750, -35);
+   		setTextBorder('info', 2, '000000');
+   	 	setTextAlignment('info', 'right');
+    	setTextFont('info', font);
+   		setTextSize('info', 30.35);
+		setTextColor('info', '999999')
+		addLuaText('info')
+		setProperty('info.alpha', 1);
+		setProperty('info.y', 400);
+		doTweenAlpha('info', 'info', 0, 15, 'quintOut');
+		setProperty('scoreTxt.y', 12);
+	end
 	if getPropertyFromClass('ClientPrefs', 'downScroll') == true then
 		setProperty('scoreTxt.y', 32);
 		setProperty('healthBar.y', 8);
@@ -100,14 +101,6 @@ end
 			elseif getProperty('curBeat') == 238 then
 				doTweenAlpha('hudAlpha', 'camHUD', 1, 0.9, 'quintOut');
 				--acupuncture
-			end
-		end
-		if songName == 'acupuncture' and isStoryMode then
-	---		if isStoryMode then		
-			if getProperty('curBeat') == 300 then
-				if getProperty('songMisses') > 30 then
-					loadSong('bad-end', 2);
-				end
 			end
 		end
 	end
