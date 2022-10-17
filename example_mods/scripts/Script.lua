@@ -108,16 +108,6 @@ function noteMiss()
 	if songName == 'acupuncture' or songName == 'castoff' or songName == 'Toykeeper' or songName == 'bad-end' then
 		if getProperty('songMisses') == Max then
 			setProperty('health', getProperty('health')-200);
-		elseif getProperty('songMisses') == 10 then
-			setProperty('fx2.alpha', 0.2)
-		elseif getProperty('songMisses') == 15 then
-			setProperty('fx2.alpha', 0.3)
-		elseif getProperty('songMisses') == 20 then
-			setProperty('fx2.alpha', 0.4)	
-		elseif getProperty('songMisses') == 40 then
-			setProperty('fx2.alpha', 0.4)
-		elseif getProperty('songMisses') == 45 then
-			setProperty('fx2.alpha', 0.5)
 		elseif getProperty('songMisses')  > 0 then
 			staticBOP()
 		end

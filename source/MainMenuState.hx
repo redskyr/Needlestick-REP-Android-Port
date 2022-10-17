@@ -24,6 +24,7 @@ import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
 
 using StringTools;
+using flixel.util.FlxSpriteUtil;
 
 class MainMenuState extends MusicBeatState
 {
@@ -57,9 +58,12 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
-		trace("if you get an error while using debug mode about frame errors, ignore them those are for the story mode effect");
+		#if debug
+			trace("if you get an error while using debug mode about frame errors, ignore them those are for the story mode effect");
+		#end
 		WeekData.loadTheFirstEnabledMod();
 		FlxG.mouse.visible = true;
+		FlxG.mouse.useSystemCursor = false;
 		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
@@ -90,7 +94,6 @@ class MainMenuState extends MusicBeatState
 		LMAOO2.updateHitbox();
 		LMAOO2.alpha = 1;
 		LMAOO2.screenCenter(X);
-		
 		
 		sky = new FlxBackdrop(Paths.image("ghost/mainSky"), 0.2, 0, true, true);
 		sky.velocity.set(0, 90);
@@ -135,7 +138,8 @@ class MainMenuState extends MusicBeatState
 		add(camFollow);
 		add(camFollowPos);
 
-		add(sky);
+		if(ClientPrefs.menufilter)
+			add(sky);
 
 
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('sonic'));

@@ -26,7 +26,7 @@ function newSeed()
 end
 
 function onCreate()
-    if getPropertyFromClass('ClientPrefs', 'shaders') then
+    if getPropertyFromClass('ClientPrefs', 'perlin') then
         newSeed()
     else
         close(true)

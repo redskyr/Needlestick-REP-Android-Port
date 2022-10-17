@@ -524,9 +524,17 @@ class PlayState extends MusicBeatState
 				precacheList.set('shadow', 'image');
 				precacheList.set('backgrounds/alley/Wall', 'image');
 			case 'badstage':
-
 				add(gfGroup);
 				add(dadGroup);
+				bfd = new FlxSprite(550, 50);
+				bfd.frames = Paths.getSparrowAtlas('string');
+				bfd.animation.addByPrefix('stringstar', 'stringstar', 24, false);
+				bfd.animation.addByPrefix('stringA', 'stringA', 24, false);
+				bfd.animation.addByPrefix('stringout', 'stringout', 24, false);
+				bfd.animation.play('stringstar', false);
+				bfd.alpha = 0.001;
+				precacheList.set('string', 'image');
+				add(bfd);
 				add(boyfriendGroup);
 
 			case 'snow':
@@ -3014,20 +3022,7 @@ class PlayState extends MusicBeatState
 				}*/
 
 				//E lui
-			if(curSong.toLowerCase() == 'acupuncture' && songMisses >= 5 /*&& isStoryMode*/) {
-				transitioning = true;
-				updateTime = false;
-				FlxG.sound.music.volume = 0;
-				vocals.volume = 0;
-				vocals.pause();
-				FlxG.switchState(new GhostState()); //FIXED, runs onSongEnd
-			} else if (curSong.toLowerCase() == 'acupuncture' && songMisses <= 4 /*&& isStoryMode*/) {
-				FlxG.sound.music.pause();
-				vocals.pause();
-				paused = true;
-				PlayState.SONG = Song.loadFromJson('toykeeper', 'toykeeper');
-			//	FlxG.switchState(new GhostState()); //FIXED, runs onSongEnd
-			}
+
 				
 			if (isStoryMode)
 			{
@@ -3036,7 +3031,7 @@ class PlayState extends MusicBeatState
 
 				storyPlaylist.remove(storyPlaylist[0]);
 
-				if (storyPlaylist.length <= 0)
+				if (storyPlaylist.length <= 0 && curSong.toLowerCase() != 'acupuncture')
 				{
 					WeekData.loadTheFirstEnabledMod();
 					FlxG.sound.playMusic(Paths.music('freakyMenu'));
@@ -3060,6 +3055,31 @@ class PlayState extends MusicBeatState
 						FlxG.save.flush();
 					}
 					changedDifficulty = false;
+				} else if(curSong.toLowerCase() == 'acupuncture' && songMisses >= 5) {
+					trace("taking you to ghoststate");
+					transitioning = true;
+					updateTime = false;
+					FlxG.sound.music.volume = 0;
+					vocals.volume = 0;
+					vocals.pause();
+					FlxG.switchState(new GhostState()); //FIXED, runs onSongEnd
+				} else if (curSong.toLowerCase() == 'acupuncture' && songMisses <= 4) {
+					trace("taking you to toykeeper");
+					var difficulty:String = CoolUtil.getDifficultyFilePath();
+
+					PlayState.SONG = Song.loadFromJson('toykeeper' + difficulty, 'toykeeper');
+
+					cancelMusicFadeTween();
+					
+					FlxG.sound.music.stop();
+
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
+
+					prevCamFollow = camFollow;
+					prevCamFollowPos = camFollowPos;
+
+					LoadingState.loadAndSwitchState(new PlayState());
 				}
 				else
 				{

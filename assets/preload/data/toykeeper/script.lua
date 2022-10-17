@@ -10,7 +10,7 @@ function onCreate()
 	setObjectCamera('hand','camHUD');
 	setProperty('hand.alpha',0)]]
 
-	addCharacterToList('toykeeper', 'boyfriend')
+	--addCharacterToList('toykeeper', 'boyfriend')
 
 	--[[makeAnimatedLuaSprite('handR', 'Tasset/handsr', 650, 370)
 	addAnimationByPrefix('handR', 'hand up r ', 'hand up r', 24, false)

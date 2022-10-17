@@ -1,25 +1,6 @@
 function onCreate()
-    makeAnimatedLuaSprite('bfd', 'string', 550, 50)
-	addAnimationByPrefix('bfd', 'stringstar', 'stringstar', 24, false)
-	addAnimationByPrefix('bfd', 'stringA', 'stringA', 24, false)
-
-    addAnimationByPrefix('bfd', 'stringout', 'stringout', 24, false)
-    addAnimationByIndices('bfd','stringout','stringout','8,7,6,5,4,3,2,1',24);
-    
     setProperty('camHUD.visible',false)
-    addLuaSprite('bfd',true);
-    setProperty('bfd.alpha', 0)
 
-	addCharacterToList('bfstring', 'boyfriend')
-    addCharacterToList('toykeepereye', 'dad')
-
-
-    --OBJECT ORDER STUFF--
-
-
-    setObjectOrder('bfd', '1');
-
-    setObjectOrder('gf', '0');
 end
 
 function onBeatHit()
@@ -39,8 +20,6 @@ function onBeatHit()
         setProperty('dad.visible', true)
         setProperty('camHUD.visible',true)
         setProperty('bfd.alpha', 1)    
-        triggerEvent('Change Character', 0, 'bfstring')
-        triggerEvent('Change Character', 1, 'toykeepereye')
 
         --POSITION AND X Y
 
