@@ -101,11 +101,14 @@ class CreditsState extends MusicBeatState
 			['Drawpant',			'drawpant',			'Artist',														'https://twitter.com/DrawPant',			'AA32FE'],
 			[''],
 			['Special Thanks'],
-			['Rotty',		'rotty',					'Ex-Charter',													'https://twitter.com/RottySC2',			'4494E6'],
-			['Smalltalk',		'smalltalk',			'Additional Programmer!',										'https://twitter.com/RottySC2',			'4494E6'],
+			['Rotty',			'rotty',				'Ex-Charter',													'https://twitter.com/RottySC2',			'4494E6'],
+			['Smalltalk',		'smalltalk',			'Additional Programmer!',										'https://twitter.com/FNF_0Disruption',			'4494E6'],
+			['Fimbulveter',		'fim',					'Charter',														'https://twitter.com/Fimbulveter2',			'4494E6'],
+			['Corr',			'corr',					'Logo Artist',													'https://twitter.com/c0rr_25',			'4494E6'],
+			['MrMouthless',		'mouth',				'Composer',						'https://www.youtube.com/channel/UCMzFdBlfeAz7Ft1GhOKvjPA',			'4494E6'],
+
 
 			[''],
-			['Former Engine Members'],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
 			['RiverOaken',			'river',			'Main Artist/Animator of Psych Engine',							'https://twitter.com/RiverOaken',		'B42F71'],

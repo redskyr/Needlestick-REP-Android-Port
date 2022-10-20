@@ -35,6 +35,8 @@ function Freeze()
 	setProperty('BFreeze.alpha', 0.5);
 	colvulnerable = false 
 	playSound('freeze', 0.2)
+	doTweenColor('effect', 'boyfriend', '00B7FF', 0.5, linear)
+
 end
 
 function BigFreeze()
@@ -44,6 +46,7 @@ function BigFreeze()
 	setProperty('BFreeze.alpha', 0.7);
 	colvulnerable = false 
 	playSound('freeze', 0.1)
+	doTweenColor('effect', 'boyfriend', '00B7FF', 0.5, linear)
 
 
 end
@@ -99,15 +102,16 @@ end
 
 function onTimerCompleted(tag, l, ll)
     if tag == 'Bigf' then
-		debugPrint'Tas joyita'
 		setProperty('boyfriend.stunned', false)
 		setProperty('BFreeze.alpha', 0.1);
+		doTweenColor('diffect', 'boyfriend', 'FFFFFF', 0.5, linear)
+
 		colvulnerable = true; 
 
 
 	elseif tag == 'Freezer' then
 		setProperty('boyfriend.stunned', false)
-		debugPrint'Tas joya'
+		doTweenColor('diffect', 'boyfriend', 'FFFFFF', 0.5, linear)
 		setProperty('BFreeze.alpha', 0.1);
 		runTimer('CooldownOffQ', 3);
 		colvulnerable = true; 

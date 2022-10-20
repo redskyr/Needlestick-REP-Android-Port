@@ -31,3 +31,27 @@ function onBeatHit()
         objectPlayAnimation('bfd', 'stringA', true)
     end
 end
+
+function opponentNoteHit()
+	if curBeat > 0 and curBeat < 368 then 
+        health = getProperty('health')
+        if getProperty('health') > 0.05 then
+            setProperty('health', health- 0.02);
+        end
+    end
+    if curBeat > 368 and curBeat < 400 then 
+
+        health = getProperty('health')
+        if getProperty('health') > 0.05 then
+            setProperty('health', health- 0.06);
+        end
+    end
+    if curBeat > 400 then 
+
+        health = getProperty('health')
+        if getProperty('health') > 0.05 then
+            setProperty('health', health- 0.03);
+        end
+    end
+
+end
