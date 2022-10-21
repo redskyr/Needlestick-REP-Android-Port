@@ -407,6 +407,7 @@ class PlayState extends MusicBeatState
 		}
 		SONG.stage = curStage;
 
+
 		var stageData:StageFile = StageData.getStageFile(curStage);
 		if(stageData == null) { //Stage couldn't be found, create a dummy stage for preventing a crash
 			stageData = {
@@ -764,6 +765,8 @@ class PlayState extends MusicBeatState
 				blackBarsAreShown = false;
 			default:
 				blackBarsAreShown = true;
+			case 'acupuncture':
+				
 		}
 
 		if(blackBarsAreShown){

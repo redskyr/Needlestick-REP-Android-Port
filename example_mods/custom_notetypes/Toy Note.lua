@@ -15,11 +15,11 @@ end
 
 function goodNoteHit(id, noteData, noteType, isSustainNote)
 	if noteType == 'Toy Note' then
-		doTweenColor('effect', 'boyfriend', 'FF7F00', 0.5, linear)
+		doTweenColor('effect', 'boyfriend', 'F57F55', 0.5, linear)
 		--playSound('bloxy', 1.5)
 		--setPropertyFromGroup ('playerStrums', i, 'alpha', 0)
 		for i = 4,7 do
-			noteTweenAlpha('note' .. i .. 'alphatween', i, 0, 0.2, 'linear')
+			noteTweenAlpha('note' .. i .. 'alphatween', i, 0.03, 0.2, 'linear')
 		end
 		runTimer('GhostDuration', 3)
 		--triggerEvent('Change Scroll Speed', 1.5, 0.5)
