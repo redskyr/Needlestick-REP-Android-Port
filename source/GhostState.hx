@@ -29,6 +29,8 @@ using StringTools;
 class GhostState extends MusicBeatState
 {
 	var icontext:FlxText;
+	var icontext2:FlxText;
+
 	var ytext:FlxText;
 	var noootext:FlxText;
 
@@ -74,6 +76,13 @@ class GhostState extends MusicBeatState
 		icontext.scrollFactor.set();
 		add(icontext);
 
+		icontext2 = new FlxText(50, FlxG.height + offsetThing - 25, 1180, "Then you have nothing to do here.", 32);
+		icontext2.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER /*, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK*/);
+		icontext2.scrollFactor.set();
+		add(icontext2);
+
+		icontext2.visible = false;
+
 		sky = new FlxBackdrop(Paths.image("ghost/mainSky"), 0.2, 0, true, true);
 		sky.velocity.set(0, 90);
 		sky.scale.set(2, 7);
@@ -100,6 +109,14 @@ class GhostState extends MusicBeatState
 		} else if (FlxG.mouse.overlaps(noootext) && FlxG.mouse.justPressed) {
 			var timer:FlxTimer = new FlxTimer().start(random, sayHello);
 			trace("no");
+			FlxG.sound.playMusic(Paths.music('ghost'), 1, true);
+			icontext2.visible = true;
+			icontext.visible = false;
+			FlxG.camera.shake(1, 1);
+
+
+
+
 		}
 
 		if (FlxG.mouse.overlaps(noootext)) {
