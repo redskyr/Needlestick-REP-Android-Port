@@ -35,12 +35,7 @@ class MainMenuState extends MusicBeatState
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 	
-	var optionShit:Array<String> = [
-		'story_mode',
-		'freeplay',
-		'credits',
-		'options'
-	];
+	var optionShit:Array<String>;
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -61,6 +56,22 @@ class MainMenuState extends MusicBeatState
 		#if debug
 			trace("if you get an error while using debug mode about frame errors, ignore them those are for the story mode effect");
 		#end
+
+		if(ClientPrefs.freeplayUnlocked){
+			optionShit = [
+				'story_mode',
+				'freeplay',
+				'credits',
+				'options'
+			];
+		} else {
+			optionShit = [
+				'story_mode',
+				'credits',
+				'options'
+			];
+		}
+
 		WeekData.loadTheFirstEnabledMod();
 		FlxG.mouse.visible = true;
 		FlxG.mouse.useSystemCursor = false;

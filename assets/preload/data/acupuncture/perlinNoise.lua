@@ -76,8 +76,7 @@ end
 function onCreate()
     tileXsize = screenWidth/resX
     tileYsize = screenHeight/resY
-
-    if getPropertyFromClass('ClientPrefs', 'perlin') then
+    if getPropertyFromClass('ClientPrefs', 'shaders') then
         newSeed()
         drawPerlinShit()
     else

@@ -94,10 +94,10 @@ class CreditsState extends MusicBeatState
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
 			['Needlestick Sonic Team'],
-			['Vasalto',				'vasalto',			'Director',														'https://twitter.com/Vasalto3',			'444444'],
+			['Vasalto',				'vasalto',			'Director/Composer/Coder',														'https://twitter.com/Vasalto3',			'444444'],
 			['Tet',					'tet',				'Main Artist/Animator',											'https://twitter.com/ranfringW',		'C30085'],
 			['MajorasMax_',			'majoras',			'Composer',														'https://twitter.com/MajorasMax',		'4494E6'],
-			['TheSlithyGamer4evr',	'slithy',			'Charter/Coder',												'https://www.youtube.com/channel/UCRyEPq3297h56-cubR38TGA',	'389A58'],
+			['Slithy',	'slithy',			'Charter/Coder',												'https://www.youtube.com/c/TheSlithyGamer4evr',	'389A58'],
 			['Drawpant',			'drawpant',			'Artist',														'https://twitter.com/DrawPant',			'AA32FE'],
 			[''],
 			['Special Thanks'],

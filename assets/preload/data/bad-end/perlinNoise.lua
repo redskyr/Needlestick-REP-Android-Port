@@ -78,13 +78,8 @@ end
 function onCreate()
     tileXsize = screenWidth/resX
     tileYsize = screenHeight/resY
-
-    if getPropertyFromClass('ClientPrefs', 'perlin') then
-        newSeed()
-        drawPerlinShit()
-    else
-        close(true)
-    end
+    newSeed()
+    drawPerlinShit()
 end
 
 function onUpdate(elp)

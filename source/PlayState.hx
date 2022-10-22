@@ -1090,6 +1090,8 @@ class PlayState extends MusicBeatState
 							}
 						});
 					});
+				case 'castoff' | 'Castoff':
+					startVideo('Needlestick_Cutscene');
 				default:
 					startCountdown();
 			}
@@ -3036,55 +3038,69 @@ class PlayState extends MusicBeatState
 
 				storyPlaylist.remove(storyPlaylist[0]);
 
-				if (storyPlaylist.length <= 0 && curSong.toLowerCase() != 'acupuncture')
+				if (storyPlaylist.length <= 0)
 				{
-					WeekData.loadTheFirstEnabledMod();
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
-
-					cancelMusicFadeTween();
-					if(FlxTransitionableState.skipNextTransIn) {
-						CustomFadeTransition.nextCamera = null;
-					}
-					MusicBeatState.switchState(new StoryMenuState());
-
-					// if ()
-					if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {
-						StoryMenuState.weekCompleted.set(WeekData.weeksList[storyWeek], true);
-
-						if (SONG.validScore)
-						{
-							Highscore.saveWeekScore(WeekData.getWeekFileName(), campaignScore, storyDifficulty);
+					if(!ClientPrefs.freeplayUnlocked){
+						switch(curSong){
+							case 'bad-end' | 'bad end' | 'toykeeper':
+								ClientPrefs.freeplayUnlocked = true;
+								FlxG.save.data.freeplayUnlocked = ClientPrefs.freeplayUnlocked; //lifesaver
+								trace("FREEPLAY UNLOCKED");
 						}
-
-						FlxG.save.data.weekCompleted = StoryMenuState.weekCompleted;
-						FlxG.save.flush();
 					}
-					changedDifficulty = false;
-				} else if(curSong.toLowerCase() == 'acupuncture' && songMisses >= 5) {
-					trace("taking you to ghoststate");
-					transitioning = true;
-					updateTime = false;
-					FlxG.sound.music.volume = 0;
-					vocals.volume = 0;
-					vocals.pause();
-					FlxG.switchState(new GhostState()); //FIXED, runs onSongEnd
-				} else if (curSong.toLowerCase() == 'acupuncture' && songMisses <= 4) {
-					trace("taking you to toykeeper");
-					var difficulty:String = CoolUtil.getDifficultyFilePath();
 
-					PlayState.SONG = Song.loadFromJson('toykeeper' + difficulty, 'toykeeper');
-
-					cancelMusicFadeTween();
-					
-					FlxG.sound.music.stop();
-
-					FlxTransitionableState.skipNextTransIn = true;
-					FlxTransitionableState.skipNextTransOut = true;
-
-					prevCamFollow = camFollow;
-					prevCamFollowPos = camFollowPos;
-
-					LoadingState.loadAndSwitchState(new PlayState());
+					switch(curSong) {
+						case 'acupuncture' | 'Acupuncture':
+							if(songMisses >= 5) {
+								trace("taking you to ghoststate");
+								transitioning = true;
+								updateTime = false;
+								FlxG.sound.music.volume = 0;
+								vocals.volume = 0;
+								vocals.pause();
+								FlxG.switchState(new GhostState()); //FIXED, runs onSongEnd
+							} else if (songMisses <= 4) {
+								trace("taking you to toykeeper");
+								var difficulty:String = CoolUtil.getDifficultyFilePath();
+			
+								PlayState.SONG = Song.loadFromJson('toykeeper' + difficulty, 'toykeeper');
+			
+								cancelMusicFadeTween();
+								
+								FlxG.sound.music.stop();
+			
+								FlxTransitionableState.skipNextTransIn = true;
+								FlxTransitionableState.skipNextTransOut = true;
+			
+								prevCamFollow = camFollow;
+								prevCamFollowPos = camFollowPos;
+			
+								LoadingState.loadAndSwitchState(new PlayState());
+							}
+						default:
+							WeekData.loadTheFirstEnabledMod();
+							FlxG.sound.playMusic(Paths.music('freakyMenu'));
+		
+							cancelMusicFadeTween();
+							if(FlxTransitionableState.skipNextTransIn) {
+								CustomFadeTransition.nextCamera = null;
+							}
+							MusicBeatState.switchState(new StoryMenuState());
+		
+							// if ()
+							if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {
+								StoryMenuState.weekCompleted.set(WeekData.weeksList[storyWeek], true);
+		
+								if (SONG.validScore)
+								{
+									Highscore.saveWeekScore(WeekData.getWeekFileName(), campaignScore, storyDifficulty);
+								}
+		
+								FlxG.save.data.weekCompleted = StoryMenuState.weekCompleted;
+								FlxG.save.flush();
+							}
+							changedDifficulty = false;
+					}
 				}
 				else
 				{

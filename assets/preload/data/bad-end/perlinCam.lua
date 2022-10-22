@@ -26,11 +26,7 @@ function newSeed()
 end
 
 function onCreate()
-    if getPropertyFromClass('ClientPrefs', 'perlin') then
-        newSeed()
-    else
-        close(true)
-    end
+    newSeed()
 end
 
 local totalElapsedX = 0
