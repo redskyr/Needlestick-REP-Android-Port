@@ -221,7 +221,7 @@ class PlayState extends MusicBeatState
 	var curse:FlxSprite;
 	var blackbar1:FlxSprite;
 	var blackbar2:FlxSprite;
-
+	var blackBarsAreShown:Bool = true;
 
 	var back:BGSprite;
 	var front:BGSprite;
@@ -280,6 +280,9 @@ class PlayState extends MusicBeatState
 	private var controlArray:Array<String>;
 
 	var precacheList:Map<String, String> = new Map<String, String>();
+	var bfd:FlxSprite;
+	var handL:FlxSprite; //hand mech for toykeeper
+	var handR:FlxSprite;
 
 	override public function create()
 	{
@@ -404,6 +407,7 @@ class PlayState extends MusicBeatState
 		}
 		SONG.stage = curStage;
 
+
 		var stageData:StageFile = StageData.getStageFile(curStage);
 		if(stageData == null) { //Stage couldn't be found, create a dummy stage for preventing a crash
 			stageData = {
@@ -521,9 +525,17 @@ class PlayState extends MusicBeatState
 				precacheList.set('shadow', 'image');
 				precacheList.set('backgrounds/alley/Wall', 'image');
 			case 'badstage':
-
 				add(gfGroup);
 				add(dadGroup);
+				bfd = new FlxSprite(550, 50);
+				bfd.frames = Paths.getSparrowAtlas('string');
+				bfd.animation.addByPrefix('stringstar', 'stringstar', 24, false);
+				bfd.animation.addByPrefix('stringA', 'stringA', 24, false);
+				bfd.animation.addByPrefix('stringout', 'stringout', 24, false);
+				bfd.animation.play('stringstar', false);
+				bfd.alpha = 0.001;
+				precacheList.set('string', 'image');
+				add(bfd);
 				add(boyfriendGroup);
 
 			case 'snow':
@@ -650,7 +662,6 @@ class PlayState extends MusicBeatState
 			gf.scrollFactor.set(0.95, 0.95);
 			gfGroup.add(gf);
 			startCharacterLua(gf.curCharacter);
-
 		}
 
 		dad = new Character(0, 0, SONG.player2);
@@ -748,18 +759,29 @@ class PlayState extends MusicBeatState
 		add(fx);
 		precacheList.set('fx', 'image');
 
+		switch(songName)
+		{
+			case 'bad-end':
+				blackBarsAreShown = false;
+			default:
+				blackBarsAreShown = true;
+			case 'acupuncture':
+				
+		}
 
-		blackbar1 = new FlxSprite(0, 0);
-		blackbar1.makeGraphic(1280, 100, 0xFF000000, true);
-		blackbar1.scrollFactor.set();
-		//blackbar1.scale.set(2, 2);
-		add(blackbar1);
-
-		blackbar2 = new FlxSprite(0, 620);
-		blackbar2.makeGraphic(1280, 100, 0xFF000000, true);
-		blackbar2.scrollFactor.set();
-		//blackbar2.scale.set(2, 2);
-		add(blackbar2);
+		if(blackBarsAreShown){
+			blackbar1 = new FlxSprite(0, 0);
+			blackbar1.makeGraphic(1280, 100, 0xFF000000, true);
+			blackbar1.scrollFactor.set();
+			//blackbar1.scale.set(2, 2);
+			add(blackbar1);
+	
+			blackbar2 = new FlxSprite(0, 620);
+			blackbar2.makeGraphic(1280, 100, 0xFF000000, true);
+			blackbar2.scrollFactor.set();
+			//blackbar2.scale.set(2, 2);
+			add(blackbar2);
+		}
 
 		var vignette:FlxSprite = new FlxSprite(0, 0);
 		vignette.loadGraphic(Paths.image('blackvignette'));
@@ -924,6 +946,30 @@ class PlayState extends MusicBeatState
 		botplayTxt.borderSize = 1.25;
 		botplayTxt.visible = cpuControlled;
 		add(botplayTxt);
+
+		switch(songName)
+		{
+			case 'toykeeper':
+				handL = new FlxSprite(100, 300);
+				handL.frames = Paths.getJSONAtlas('Tasset/handAssets');
+				handL.animation.addByPrefix('hand down','hand down', 24, false);
+				handL.animation.addByPrefix('hand up','hand up', 24, false);
+				handL.animation.addByPrefix('hand idle','hand idle', 24, true);
+				add(handL);
+				handL.cameras = [camHUD];
+				handL.alpha = 0.001;
+
+				handR = new FlxSprite(650, 370);
+				handR.frames = Paths.getJSONAtlas('Tasset/handAssets');
+				handR.animation.addByPrefix('hand down','hand down', 24, false);
+				handR.animation.addByPrefix('hand up','hand up', 24, false);
+				handR.animation.addByPrefix('hand idle','hand idle', 24, true);
+				add(handR);
+				handR.cameras = [camHUD];
+				handR.alpha = 0.001;
+				handR.flipX = true;
+		}
+
 		if(ClientPrefs.downScroll) {
 			botplayTxt.y = timeBarBG.y - 78;
 		}
@@ -931,8 +977,10 @@ class PlayState extends MusicBeatState
 		curse.cameras = [camHUD];
 		fx.cameras = [camHUD];
 		vignette.cameras = [camHUD];
-		blackbar1.cameras = [camHUD];
-		blackbar2.cameras = [camHUD];
+		if(blackBarsAreShown){
+			blackbar1.cameras = [camHUD];
+			blackbar2.cameras = [camHUD];
+		}
 		strumLineNotes.cameras = [camHUD];
 		grpNoteSplashes.cameras = [camHUD];
 		notes.cameras = [camHUD];
@@ -1042,6 +1090,8 @@ class PlayState extends MusicBeatState
 							}
 						});
 					});
+				case 'castoff' | 'Castoff':
+					startVideo('Needlestick_Cutscene');
 				default:
 					startCountdown();
 			}
@@ -1293,6 +1343,8 @@ class PlayState extends MusicBeatState
 		char.x += char.positionArray[0];
 		char.y += char.positionArray[1];
 	}
+
+		
 
 	public function startVideo(name:String)
 	{
@@ -2966,7 +3018,7 @@ class PlayState extends MusicBeatState
 				return;
 			}
 
-			if(curSong.toLowerCase() == 'acupuncture' && songMisses >= 5)
+			/*if(isStoryMode && curSong.toLowerCase() == 'acupuncture' && songMisses >= 5)
 				{	
 					transitioning = true;
 					updateTime = false;
@@ -2974,9 +3026,10 @@ class PlayState extends MusicBeatState
 					vocals.volume = 0;
 					vocals.pause();
 					FlxG.switchState(new GhostState()); //FIXED, runs onSongEnd
-				}
+				}*/
 
-				//E
+				//E lui
+
 				
 			if (isStoryMode)
 			{
@@ -2987,28 +3040,67 @@ class PlayState extends MusicBeatState
 
 				if (storyPlaylist.length <= 0)
 				{
-					WeekData.loadTheFirstEnabledMod();
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
-
-					cancelMusicFadeTween();
-					if(FlxTransitionableState.skipNextTransIn) {
-						CustomFadeTransition.nextCamera = null;
-					}
-					MusicBeatState.switchState(new StoryMenuState());
-
-					// if ()
-					if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {
-						StoryMenuState.weekCompleted.set(WeekData.weeksList[storyWeek], true);
-
-						if (SONG.validScore)
-						{
-							Highscore.saveWeekScore(WeekData.getWeekFileName(), campaignScore, storyDifficulty);
+					if(!ClientPrefs.freeplayUnlocked){
+						switch(curSong){
+							case 'bad-end' | 'bad end' | 'toykeeper':
+								ClientPrefs.freeplayUnlocked = true;
+								FlxG.save.data.freeplayUnlocked = ClientPrefs.freeplayUnlocked; //lifesaver
+								trace("FREEPLAY UNLOCKED");
 						}
-
-						FlxG.save.data.weekCompleted = StoryMenuState.weekCompleted;
-						FlxG.save.flush();
 					}
-					changedDifficulty = false;
+
+					switch(curSong) {
+						case 'acupuncture' | 'Acupuncture':
+							if(songMisses >= 5) {
+								trace("taking you to ghoststate");
+								transitioning = true;
+								updateTime = false;
+								FlxG.sound.music.volume = 0;
+								vocals.volume = 0;
+								vocals.pause();
+								FlxG.switchState(new GhostState()); //FIXED, runs onSongEnd
+							} else if (songMisses <= 4) {
+								trace("taking you to toykeeper");
+								var difficulty:String = CoolUtil.getDifficultyFilePath();
+			
+								PlayState.SONG = Song.loadFromJson('toykeeper' + difficulty, 'toykeeper');
+			
+								cancelMusicFadeTween();
+								
+								FlxG.sound.music.stop();
+			
+								FlxTransitionableState.skipNextTransIn = true;
+								FlxTransitionableState.skipNextTransOut = true;
+			
+								prevCamFollow = camFollow;
+								prevCamFollowPos = camFollowPos;
+			
+								LoadingState.loadAndSwitchState(new PlayState());
+							}
+						default:
+							WeekData.loadTheFirstEnabledMod();
+							FlxG.sound.playMusic(Paths.music('freakyMenu'));
+		
+							cancelMusicFadeTween();
+							if(FlxTransitionableState.skipNextTransIn) {
+								CustomFadeTransition.nextCamera = null;
+							}
+							MusicBeatState.switchState(new StoryMenuState());
+		
+							// if ()
+							if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {
+								StoryMenuState.weekCompleted.set(WeekData.weeksList[storyWeek], true);
+		
+								if (SONG.validScore)
+								{
+									Highscore.saveWeekScore(WeekData.getWeekFileName(), campaignScore, storyDifficulty);
+								}
+		
+								FlxG.save.data.weekCompleted = StoryMenuState.weekCompleted;
+								FlxG.save.flush();
+							}
+							changedDifficulty = false;
+					}
 				}
 				else
 				{
@@ -3845,7 +3937,6 @@ class PlayState extends MusicBeatState
 		}
 
 		
-
 
 		if (generatedMusic)
 		{

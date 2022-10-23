@@ -24,6 +24,7 @@ import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
 
 using StringTools;
+using flixel.util.FlxSpriteUtil;
 
 class MainMenuState extends MusicBeatState
 {
@@ -34,12 +35,7 @@ class MainMenuState extends MusicBeatState
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 	
-	var optionShit:Array<String> = [
-		'story_mode',
-		'freeplay',
-		'credits',
-		'options'
-	];
+	var optionShit:Array<String>;
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -50,12 +46,35 @@ class MainMenuState extends MusicBeatState
 	var debugKeys:Array<FlxKey>;
 
 	var LMAOO:FlxBackdrop;
+	var LMAOO2:FlxBackdrop;
+	var sky:FlxBackdrop;
+
 
 
 	override function create()
 	{
+		#if debug
+			trace("if you get an error while using debug mode about frame errors, ignore them those are for the story mode effect");
+		#end
+
+		if(ClientPrefs.freeplayUnlocked){
+			optionShit = [
+				'story_mode',
+				'freeplay',
+				'credits',
+				'options'
+			];
+		} else {
+			optionShit = [
+				'story_mode',
+				'credits',
+				'options'
+			];
+		}
+
 		WeekData.loadTheFirstEnabledMod();
 		FlxG.mouse.visible = true;
+		FlxG.mouse.useSystemCursor = false;
 		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
@@ -80,7 +99,22 @@ class MainMenuState extends MusicBeatState
 		LMAOO.updateHitbox();
 		LMAOO.alpha = 1;
 		LMAOO.screenCenter(X);
+
+		LMAOO2 = new FlxBackdrop(Paths.image('Chess'), 0.2, 0, true, true);
+		LMAOO2.velocity.set(80, 50);
+		LMAOO2.updateHitbox();
+		LMAOO2.alpha = 1;
+		LMAOO2.screenCenter(X);
 		
+		sky = new FlxBackdrop(Paths.image("ghost/mainSky"), 0.2, 0, true, true);
+		sky.velocity.set(0, 90);
+		sky.scale.set(3, 7);
+		sky.updateHitbox();
+		sky.alpha = 1;
+
+		sky.y = -100;
+		sky.antialiasing = false;
+
 
 		var yScroll:Float = 0.00;
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('sonic'));
@@ -90,6 +124,8 @@ class MainMenuState extends MusicBeatState
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		//add(bg);
+		add(LMAOO2);
+
 		add(LMAOO);
 
 
@@ -113,6 +149,10 @@ class MainMenuState extends MusicBeatState
 		add(camFollow);
 		add(camFollowPos);
 
+		if(ClientPrefs.menufilter)
+			add(sky);
+
+
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('sonic'));
 		magenta.scrollFactor.set(0, yScroll);
 		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
@@ -121,7 +161,7 @@ class MainMenuState extends MusicBeatState
 		magenta.visible = false;
 		magenta.antialiasing = ClientPrefs.globalAntialiasing;
 		magenta.color = 0xFFfd719b;
-		add(magenta);
+		//add(magenta);
 		
 		// magenta.scrollFactor.set();
 

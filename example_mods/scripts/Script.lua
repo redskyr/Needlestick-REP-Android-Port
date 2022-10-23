@@ -7,6 +7,10 @@ function onCreate()
 	
 	addCharacterToList('bfITSNOTYOU', 'boyfriend')
 
+	if songName == 'toykeeper' then
+		addCharacterToList('toykeeper', 'dad')
+	end
+
 	if difficulty == 2 then
 		Max = 35
 	elseif difficulty == 0 then
@@ -23,18 +27,19 @@ function onCreate()
 end
 
 function onCreatePost()
-	makeLuaText('info', 'Dont Get ' .. (Max) .. (" Misses..") , 750, -35);
-    setTextBorder('info', 2, '000000');
-    setTextAlignment('info', 'right');
-    setTextFont('info', font);
-    setTextSize('info', 30.35);
-	setTextColor('info', '999999')
-	addLuaText('info')
-	setProperty('info.alpha', 1);
-	setProperty('info.y', 400);
-	doTweenAlpha('info', 'info', 0, 15, 'quintOut');
-
-	setProperty('scoreTxt.y', 12);
+	if songName == 'acupuncture' or songName == 'castoff' or songName == 'toykeeper' or songName == 'bad-end' then
+		makeLuaText('info', 'Dont Get ' .. (Max) .. (" Misses..") , 750, -35);
+   		setTextBorder('info', 2, '000000');
+   	 	setTextAlignment('info', 'right');
+    	setTextFont('info', font);
+   		setTextSize('info', 30.35);
+		setTextColor('info', '999999')
+		addLuaText('info')
+		setProperty('info.alpha', 1);
+		setProperty('info.y', 400);
+		doTweenAlpha('info', 'info', 0, 15, 'quintOut');
+		setProperty('scoreTxt.y', 12);
+	end
 	if getPropertyFromClass('ClientPrefs', 'downScroll') == true then
 		setProperty('scoreTxt.y', 32);
 		setProperty('healthBar.y', 8);
@@ -102,29 +107,11 @@ end
 				--acupuncture
 			end
 		end
-		if songName == 'acupuncture' and isStoryMode then
-	---		if isStoryMode then		
-			if getProperty('curBeat') == 300 then
-				if getProperty('songMisses') > 30 then
-					loadSong('bad-end', 2);
-				end
-			end
-		end
 	end
 function noteMiss()
 	if songName == 'acupuncture' or songName == 'castoff' or songName == 'Toykeeper' or songName == 'bad-end' then
 		if getProperty('songMisses') == Max then
 			setProperty('health', getProperty('health')-200);
-		elseif getProperty('songMisses') == 10 then
-			setProperty('fx2.alpha', 0.2)
-		elseif getProperty('songMisses') == 15 then
-			setProperty('fx2.alpha', 0.3)
-		elseif getProperty('songMisses') == 20 then
-			setProperty('fx2.alpha', 0.4)	
-		elseif getProperty('songMisses') == 40 then
-			setProperty('fx2.alpha', 0.4)
-		elseif getProperty('songMisses') == 45 then
-			setProperty('fx2.alpha', 0.5)
 		elseif getProperty('songMisses')  > 0 then
 			staticBOP()
 		end
@@ -132,23 +119,23 @@ function noteMiss()
 end
 
 function onStepHit()
-	if songName == 'acupuncture' or songName == 'castoff' or songName == 'Toykeeper' or songName == 'bad-end' then
+	if songName == 'acupuncture' or songName == 'castoff' or songName == 'toykeeper' or songName == 'bad-end' then
 		if curStep == 10 then
 			modchart = false
 		end
 	end
-	if songName == 'acupuncture' or songName == 'castoff' or songName == 'Toykeeper' or songName == 'bad-end' then
+	if songName == 'acupuncture' or songName == 'castoff' or songName == 'toykeeper' or songName == 'bad-end' then
 		if curStep == 110 or curStep == 120 or curStep == 125 or curStep == 928 or curStep == 932 or curStep == 938 or curStep == 958 or curStep == 1172 or curStep == 1276 or curStep == 1282 or curStep == 1304 or curStep == 1536 or curStep == 1922 or curStep == 1937 or curStep == 1943 or curStep == 1956 then
 			staticON()
 		end
 	end
-	if songName == 'acupuncture' or songName == 'castoff' or songName == 'Toykeeper' or songName == 'bad-end' then
+	if songName == 'acupuncture' or songName == 'castoff' or songName == 'toykeeper' or songName == 'bad-end' then
 		if curStep == 127 or curStep == 1024 or curStep == 1154 or curStep == 1176 or curStep == 1279 or curStep == 1300 or curStep == 1408 or curStep == 1792 or curStep == 1926 or curStep == 1940 or curStep == 1946 or curStep == 1960 then
 			staticOFF()
 		end
 	end
 	if curStep == 128 then
-		if songName == 'Toykeeper' then
+		if songName == 'toykeeper' then
 			triggerEvent('Change Character', 1, 'toykeeper')
 		end
 	end

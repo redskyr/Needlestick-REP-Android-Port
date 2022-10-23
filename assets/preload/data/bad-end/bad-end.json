@@ -2854,6 +2854,11 @@
 						96900,
 						0,
 						0
+					],
+					[
+						96000,
+						0,
+						0
 					]
 				],
 				"typeOfSection": 0,
@@ -2994,11 +2999,6 @@
 						0
 					],
 					[
-						100350,
-						1,
-						0
-					],
-					[
 						100650,
 						1,
 						0
@@ -3006,6 +3006,11 @@
 					[
 						100050,
 						0,
+						0
+					],
+					[
+						100350,
+						3,
 						0
 					]
 				],
@@ -3122,17 +3127,7 @@
 						0
 					],
 					[
-						103500,
-						2,
-						0
-					],
-					[
 						103650,
-						1,
-						0
-					],
-					[
-						103950,
 						1,
 						0
 					],
@@ -4062,6 +4057,11 @@
 						130500,
 						2,
 						225
+					],
+					[
+						129600,
+						5,
+						225
 					]
 				],
 				"typeOfSection": 0,
@@ -4929,34 +4929,54 @@
 				"bpm": 200
 			},
 			{
-				"gfSection": false,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
-				"bpm": 200,
 				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 200,
 				"changeBPM": false,
 				"mustHitSection": true
 			},
 			{
-				"gfSection": false,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
-				"bpm": 200,
 				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 200,
 				"changeBPM": false,
 				"mustHitSection": true
 			},
 			{
-				"gfSection": false,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
-				"bpm": 200,
 				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 200,
 				"changeBPM": false,
 				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 200,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 200
 			},
 			{
 				"gfSection": false,

@@ -7,6 +7,12 @@ import flixel.graphics.FlxGraphic;
 import Controls;
 
 class ClientPrefs {
+	//save data stuff
+	public static var showWarningScreen:Bool = true;
+	public static var freeplayUnlocked:Bool = false;
+
+	//options stuff
+	public static var menufilter:Bool = true;
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
 	public static var opponentStrums:Bool = true;
@@ -93,6 +99,17 @@ class ClientPrefs {
 	}
 
 	public static function saveSettings() {
+
+		var warningSave:FlxSave = new FlxSave();
+		warningSave.bind('warningscreen', 'ninjamuffin99');
+		warningSave.data.isTrue = showWarningScreen;
+		warningSave.flush();
+		FlxG.log.add('warning setting saved!');
+
+		FlxG.save.data.freeplayUnlocked = freeplayUnlocked;
+
+		//options stuff
+		FlxG.save.data.menufilter = menufilter;
 		FlxG.save.data.downScroll = downScroll;
 		FlxG.save.data.middleScroll = middleScroll;
 		FlxG.save.data.opponentStrums = opponentStrums;
@@ -139,6 +156,21 @@ class ClientPrefs {
 	}
 
 	public static function loadPrefs() {
+
+		var warningSave:FlxSave = new FlxSave();
+		warningSave.bind('warningscreen', 'ninjamuffin99');
+		if(warningSave != null && warningSave.data.isTrue != null) {
+			showWarningScreen = warningSave.data.isTrue;
+		}
+
+		if(FlxG.save.data.freeplayUnlocked != null){
+			freeplayUnlocked = FlxG.save.data.freeplayUnlocked;
+		}
+
+		//options stuff
+		if(FlxG.save.data.menufilter != null) {
+			menufilter = FlxG.save.data.menufilter;
+		}
 		if(FlxG.save.data.downScroll != null) {
 			downScroll = FlxG.save.data.downScroll;
 		}
