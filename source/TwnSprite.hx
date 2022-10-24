@@ -6,7 +6,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.typeLimit.OneOfTwo;
 
-class TwnSprite extends FlxText     // uhhhhhhh sure ig lol if it works 
+class TwnSprite extends FlxText // If it works, It works.
 {
     private var twn:FlxTween = null;
     private var stwn:FlxTween = null;
