@@ -38,8 +38,8 @@ class NeedleSettingsSubState extends BaseOptionsMenu
 	public static var menufilter:Bool = true;
 	public static var perlin:Bool = true;
 		**/
-		var option:Option = new Option('Main Menu Filter',
-			"If unchecked, turns off the trippy filter in the main menu.",
+		var option:Option = new Option('Trippy UI Filters',
+			"If unchecked, turns off the trippy filters in some parts of the game.",
 			'menufilter',
 			'bool',
 			true);

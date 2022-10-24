@@ -472,6 +472,9 @@ class TitleState extends MusicBeatState
 						MusicBeatState.switchState(new WarningState());
 					} else {
 						MusicBeatState.switchState(new MainMenuState());
+						#if debug
+						trace("if you get an error while using debug mode about frame errors, ignore them those are for the story mode effect");
+						#end
 					}
 					closedState = true;
 				});

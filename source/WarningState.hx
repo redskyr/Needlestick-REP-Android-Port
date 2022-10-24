@@ -90,6 +90,9 @@ class WarningState extends MusicBeatState {
             FlxG.log.add('warning setting saved!');
 
             new FlxTimer().start(0.1, function(spacetmr:FlxTimer) {
+                #if debug
+                trace("if you get an error while using debug mode about frame errors, ignore them those are for the story mode effect");
+                #end
                 MusicBeatState.switchState(new MainMenuState());
             });
         }

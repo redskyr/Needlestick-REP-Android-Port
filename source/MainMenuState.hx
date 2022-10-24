@@ -49,14 +49,8 @@ class MainMenuState extends MusicBeatState
 	var LMAOO2:FlxBackdrop;
 	var sky:FlxBackdrop;
 
-
-
 	override function create()
 	{
-		#if debug
-			trace("if you get an error while using debug mode about frame errors, ignore them those are for the story mode effect");
-		#end
-
 		if(ClientPrefs.freeplayUnlocked){
 			optionShit = [
 				'story_mode',
@@ -71,6 +65,10 @@ class MainMenuState extends MusicBeatState
 				'options'
 			];
 		}
+		
+		//WHY ARENT THESE TWO USED MORE
+		Paths.clearStoredMemory(); 
+		Paths.clearUnusedMemory();
 
 		WeekData.loadTheFirstEnabledMod();
 		FlxG.mouse.visible = true;
@@ -311,7 +309,7 @@ class MainMenuState extends MusicBeatState
 				}
 			}
 			#if desktop
-			else if (FlxG.keys.anyJustPressed(debugKeys))
+			else if (FlxG.keys.anyJustPressed(debugKeys) && ClientPrefs.freeplayUnlocked)
 			{
 				selectedSomethin = true;
 				MusicBeatState.switchState(new MasterEditorMenu());

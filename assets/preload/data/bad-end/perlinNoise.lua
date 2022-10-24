@@ -2,9 +2,9 @@
 local resMultiplier = 1
 local resX = 64*resMultiplier
 local resY = 36*resMultiplier
-local genFramerate = 14
+local genFramerate = 8
 
-local smoothness = 60
+local smoothness = 30
 local blendMode = 'darken'
 ------------------------------
 

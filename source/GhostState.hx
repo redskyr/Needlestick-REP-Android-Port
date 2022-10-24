@@ -83,14 +83,16 @@ class GhostState extends MusicBeatState
 
 		icontext2.visible = false;
 
-		sky = new FlxBackdrop(Paths.image("ghost/mainSky"), 0.2, 0, true, true);
-		sky.velocity.set(0, 90);
-		sky.scale.set(2, 7);
-		sky.updateHitbox();
-		sky.screenCenter();
-		sky.y = -100;
-		sky.antialiasing = false;
-		add(sky);
+		if(ClientPrefs.menufilter){
+			sky = new FlxBackdrop(Paths.image("ghost/mainSky"), 0.2, 0, true, true);
+			sky.velocity.set(0, 90);
+			sky.scale.set(2, 7);
+			sky.updateHitbox();
+			sky.screenCenter();
+			sky.y = -100;
+			sky.antialiasing = false;
+			add(sky);
+		}
 
 		super.create();
 	}
@@ -113,10 +115,6 @@ class GhostState extends MusicBeatState
 			icontext2.visible = true;
 			icontext.visible = false;
 			FlxG.camera.shake(1, 1);
-
-
-
-
 		}
 
 		if (FlxG.mouse.overlaps(noootext)) {

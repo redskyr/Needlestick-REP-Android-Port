@@ -1091,7 +1091,7 @@ class PlayState extends MusicBeatState
 						});
 					});
 				case 'castoff' | 'Castoff':
-					startVideo('Needlestick_Cutscene');
+					startVideo('Needlesick_Cutscene');
 				default:
 					startCountdown();
 			}
@@ -2228,7 +2228,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (FlxG.keys.anyJustPressed(debugKeysChart) && !endingSong && !inCutscene)
+		if (FlxG.keys.anyJustPressed(debugKeysChart) && !endingSong && !inCutscene && ClientPrefs.freeplayUnlocked)
 		{
 			openChartEditor();
 		}
@@ -2262,7 +2262,7 @@ class PlayState extends MusicBeatState
 		else
 			iconP2.animation.curAnim.curFrame = 0;
 
-		if (FlxG.keys.anyJustPressed(debugKeysCharacter) && !endingSong && !inCutscene) {
+		if (FlxG.keys.anyJustPressed(debugKeysCharacter) && !endingSong && !inCutscene && ClientPrefs.freeplayUnlocked) {
 			persistentUpdate = false;
 			paused = true;
 			cancelMusicFadeTween();
@@ -3051,7 +3051,7 @@ class PlayState extends MusicBeatState
 
 					switch(curSong) {
 						case 'acupuncture' | 'Acupuncture':
-							if(songMisses >= 5) {
+							if(songMisses >= 7) {
 								trace("taking you to ghoststate");
 								transitioning = true;
 								updateTime = false;
@@ -3059,7 +3059,7 @@ class PlayState extends MusicBeatState
 								vocals.volume = 0;
 								vocals.pause();
 								FlxG.switchState(new GhostState()); //FIXED, runs onSongEnd
-							} else if (songMisses <= 4) {
+							} else if (songMisses <= 6) {
 								trace("taking you to toykeeper");
 								var difficulty:String = CoolUtil.getDifficultyFilePath();
 			
