@@ -3,6 +3,7 @@ function onCreate()
 
 end
 
+--[[
 function onBeatHit()
     if curBeat == 64 then --64
         setProperty('gf.visible', false)
@@ -31,7 +32,7 @@ function onBeatHit()
         objectPlayAnimation('bfd', 'stringA', true)
     end
 end
-
+]]
 function opponentNoteHit()
 	if curBeat > 0 and curBeat < 368 then 
         health = getProperty('health')

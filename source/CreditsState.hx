@@ -94,15 +94,15 @@ class CreditsState extends MusicBeatState
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
 			['Needlestick Sonic Team'],
-			['Vasalto',				'vasalto',			'Director/Composer/Coder',														'https://twitter.com/Vasalto3',			'444444'],
+			['Vasalto',				'vasalto',			'Director/Composer/Coder\n"PLAY ZERO DISRUPTION"',		'https://twitter.com/Vasalto3',			'444444'],
 			['Tet',					'tet',				'Main Artist/Animator',											'https://twitter.com/ranfringW',		'C30085'],
 			['MajorasMax_',			'majoras',			'Composer',														'https://twitter.com/MajorasMax',		'4494E6'],
-			['Slithy',	'slithy',			'Charter/Coder',												'https://www.youtube.com/c/TheSlithyGamer4evr',	'389A58'],
+			['Slithy',	'slithy',			'Charter/Coder\n"Yes, I did program the rest of this mod on a crappy laptop."',			'https://www.youtube.com/c/TheSlithyGamer4evr',	'389A58'],
 			['Drawpant',			'drawpant',			'Artist',														'https://twitter.com/DrawPant',			'AA32FE'],
+			['Smalltalk',		'smalltalk',			'Additional Programmer!',										'https://twitter.com/FNF_0Disruption',			'4494E6'],
 			[''],
 			['Special Thanks'],
 			['Rotty',			'rotty',				'Ex-Charter',													'https://twitter.com/RottySC2',			'4494E6'],
-			['Smalltalk',		'smalltalk',			'Additional Programmer!',										'https://twitter.com/FNF_0Disruption',			'4494E6'],
 			['Fimbulveter',		'fim',					'Charter',														'https://twitter.com/Fimbulveter2',			'4494E6'],
 			['Corr',			'corr',					'Logo Artist',													'https://twitter.com/c0rr_25',			'4494E6'],
 			['MrMouthless',		'mouth',				'Composer',						'https://www.youtube.com/channel/UCMzFdBlfeAz7Ft1GhOKvjPA',			'4494E6'],

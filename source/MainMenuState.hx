@@ -66,9 +66,7 @@ class MainMenuState extends MusicBeatState
 			];
 		}
 		
-		//WHY ARENT THESE TWO USED MORE
-		Paths.clearStoredMemory(); 
-		Paths.clearUnusedMemory();
+		//i now know why those two that i just deleted weren't used more
 
 		WeekData.loadTheFirstEnabledMod();
 		FlxG.mouse.visible = true;

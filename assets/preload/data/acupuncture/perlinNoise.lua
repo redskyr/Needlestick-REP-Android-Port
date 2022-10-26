@@ -74,6 +74,10 @@ function updateNoiseColor()
 end
 
 function onCreate()
+    if getPropertyFromClass('ClientPrefs', 'perlinOptimized') then
+        resX = 32*resMultiplier
+        resY = 18*resMultiplier
+    end
     tileXsize = screenWidth/resX
     tileYsize = screenHeight/resY
     if getPropertyFromClass('ClientPrefs', 'shaders') then

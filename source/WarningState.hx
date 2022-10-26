@@ -34,7 +34,7 @@ class WarningState extends MusicBeatState {
     var cooldown:Bool = false;
 
     override function create() {
-        if(ClientPrefs.menufilter){
+        if(ClientPrefs.menufilter) {
             curSelected = true;
             selection = 'YES';
         } else {
@@ -61,7 +61,7 @@ class WarningState extends MusicBeatState {
     }
 
 	override function update(elapsed:Float) {
-        if(FlxG.keys.justPressed.ENTER && !cooldown){
+        if(FlxG.keys.justPressed.ENTER && !cooldown) {
             if(!curSelected) {
                 trace("yeah");
                 ClientPrefs.menufilter = true;
@@ -80,7 +80,7 @@ class WarningState extends MusicBeatState {
                 cooldown = false;
             });
         }
-        if(FlxG.keys.justPressed.SPACE){
+        if(FlxG.keys.justPressed.SPACE) {
             ClientPrefs.showWarningScreen = false;
 
             var warningSave:FlxSave = new FlxSave();

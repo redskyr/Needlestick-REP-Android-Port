@@ -283,10 +283,24 @@ class PlayState extends MusicBeatState
 	var bfd:FlxSprite;
 	var handL:FlxSprite; //hand mech for toykeeper
 	var handR:FlxSprite;
+	var blackScreen:FlxSprite; //bad end
+	var maxMisses:Int;
+	var missMechText:FlxText;
+	public static var redDeath = false;
 
 	override public function create()
 	{
 		Paths.clearStoredMemory();
+
+		switch(CoolUtil.difficultyString()){ //misses mech baybeeeeeee
+			case 'EASY':
+				maxMisses = 75;
+			case 'NORMAL':
+				maxMisses = 50;
+			case 'HARD':
+				maxMisses = 35;
+		}
+		trace("max misses is " + maxMisses);
 
 		// for lua
 		instance = this;
@@ -763,10 +777,10 @@ class PlayState extends MusicBeatState
 		{
 			case 'bad-end':
 				blackBarsAreShown = false;
+				redDeath = true;
 			default:
-				blackBarsAreShown = true;
-			case 'acupuncture':
-				
+				blackBarsAreShown = true;		
+				redDeath = false;		
 		}
 
 		if(blackBarsAreShown){
@@ -968,6 +982,15 @@ class PlayState extends MusicBeatState
 				handR.cameras = [camHUD];
 				handR.alpha = 0.001;
 				handR.flipX = true;
+			case 'bad-end' | 'bad end':
+				blackScreen = new FlxSprite().makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
+				add(blackScreen);
+				blackScreen.screenCenter(X);
+				blackScreen.screenCenter(Y);
+				blackScreen.alpha = 0.001;
+				blackScreen.scrollFactor.set();
+
+				camHUD.visible = false;
 		}
 
 		if(ClientPrefs.downScroll) {
@@ -994,6 +1017,21 @@ class PlayState extends MusicBeatState
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
+
+
+		switch(curSong){
+			case 'castoff' | 'acupuncture' | 'toykeeper' | 'bad-end' | 'bad end':
+				trace("adding misses text");
+				missMechText = new FlxText(0, 0, 0, "Don't Get " + maxMisses + " Misses..", 30);	
+				missMechText.setPosition(450, -35);
+				//missMechText.setFormat("vcr.ttf", 30.35, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				missMechText.setFormat(Paths.font("vcr.ttf"), 30, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				missMechText.color = 0xFF999999;
+				missMechText.y = 400;
+				add(missMechText);
+				missMechText.cameras = [camHUD];
+				FlxTween.tween(missMechText, {alpha: 0}, 15, {ease: FlxEase.quintOut});
+		}
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -2212,6 +2250,13 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
+		switch(curSong){
+			case 'castoff' | 'acupuncture' | 'toykeeper' | 'bad end' | 'bad-end':
+				if(songMisses > maxMisses-10){
+					camHUD.shake(0.002, 0.4);
+				}		
+		}
+
 		setOnLuas('curDecStep', curDecStep);
 		setOnLuas('curDecBeat', curDecBeat);
 
@@ -2563,6 +2608,17 @@ class PlayState extends MusicBeatState
 				for (timer in modchartTimers) {
 					timer.active = true;
 				}
+
+				switch(curSong){
+					case 'castoff' | 'acupuncture' | 'toykeeper' | 'bad end' | 'bad-end':
+						if(songMisses >= maxMisses){
+							GameOverSubstate.loopSoundName = 'Toykeeper';
+							GameOverSubstate.deathSoundName = 'Laugh';
+							GameOverSubstate.characterName = 'bfITSNOTYOU';
+							fx.alpha = 0.8;
+						}
+				}
+
 				openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x - boyfriend.positionArray[0], boyfriend.getScreenPosition().y - boyfriend.positionArray[1], camFollowPos.x, camFollowPos.y));
 
 				// MusicBeatState.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
@@ -3040,15 +3096,6 @@ class PlayState extends MusicBeatState
 
 				if (storyPlaylist.length <= 0)
 				{
-					if(!ClientPrefs.freeplayUnlocked){
-						switch(curSong){
-							case 'bad-end' | 'bad end' | 'toykeeper':
-								ClientPrefs.freeplayUnlocked = true;
-								FlxG.save.data.freeplayUnlocked = ClientPrefs.freeplayUnlocked; //lifesaver
-								trace("FREEPLAY UNLOCKED");
-						}
-					}
-
 					switch(curSong) {
 						case 'acupuncture' | 'Acupuncture':
 							if(songMisses >= 7) {
@@ -3078,6 +3125,16 @@ class PlayState extends MusicBeatState
 								LoadingState.loadAndSwitchState(new PlayState());
 							}
 						default:
+
+							if(!ClientPrefs.freeplayUnlocked){
+								switch(curSong){
+									case 'bad-end' | 'bad end' | 'toykeeper':
+										ClientPrefs.freeplayUnlocked = true;
+										FlxG.save.data.freeplayUnlocked = ClientPrefs.freeplayUnlocked; //lifesaver
+										trace("FREEPLAY UNLOCKED");
+								}
+							}
+							
 							WeekData.loadTheFirstEnabledMod();
 							FlxG.sound.playMusic(Paths.music('freakyMenu'));
 		
@@ -3634,6 +3691,16 @@ class PlayState extends MusicBeatState
 			char.playAnim(animToPlay, true);
 		}
 
+		switch(curSong){
+			case 'castoff' | 'acupuncture' | 'toykeeper' | 'bad-end' | 'bad end':
+				if(songMisses >= maxMisses){
+					health = health-200;
+				} else if(songMisses > 0) {
+					fx.alpha = 0.5;
+					FlxTween.tween(fx, {alpha: 0}, 1, {ease: FlxEase.linear});
+				}
+		}
+
 		callOnLuas('noteMiss', [notes.members.indexOf(daNote), daNote.noteData, daNote.noteType, daNote.isSustainNote]);
 	}
 
@@ -3936,7 +4003,55 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
-		
+		switch(curSong){
+			case 'bad end' | 'bad-end':
+				switch(curBeat){
+					case 55:
+						FlxTween.tween(bfd, {alpha: 1}, 2, {ease: FlxEase.quadInOut});
+					case 63:
+						bfd.animation.play('stringA', true);
+					case 64:
+						blackScreen.alpha = 1;
+					case 80:
+						GameOverSubstate.characterName = 'bfstring-dead';
+						redDeath = false;
+						camHUD.visible = true;
+						blackScreen.alpha = 0.001;
+						bfd.x = 470;
+						bfd.y = 50;
+						dad.x = 550;
+						dad.y = 1;
+						gf.visible = false;
+					case 512:
+						blackScreen.alpha = 1;
+				}
+		/*
+		    if curBeat == 64 then --64
+			setProperty('gf.visible', false)
+			setProperty('hud.visible', false)
+			setProperty('boyfriend.visible', false)
+			setProperty('dad.visible', false)
+			setProperty('bfd.alpha', 0)
+		elseif curBeat == 63 then
+			objectPlayAnimation('bfd', 'stringA', true)
+		elseif curBeat == 80 then -- FULL THING
+			setProperty('gf.visible', false)
+			setProperty('boyfriend.visible', true)
+			setProperty('dad.visible', true)
+			setProperty('camHUD.visible',true)
+			setProperty('bfd.alpha', 1)    
+
+			--POSITION AND X Y
+
+			setProperty('bfd.x', 470)
+			setProperty('bfd.y', 50)
+			setProperty('dad.x', 550)
+			setProperty('dad.y', 1)
+
+			objectPlayAnimation('bfd', 'stringA', true)
+		end
+		 */
+		}		
 
 		if (generatedMusic)
 		{

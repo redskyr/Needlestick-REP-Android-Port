@@ -555,7 +555,7 @@ class TitleState extends MusicBeatState
 					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
-					createCoolText(['Vasalto', 'Tet', 'MajorasMax_', 'Slithy', 'Drawpant']);
+					createCoolText(['Vasalto', 'Tet', 'MajorasMax_', 'Slithy', 'Drawpant', 'SmallTalk']);
 				// credTextShit.visible = true;
 				case 4:
 					addMoreText('present');

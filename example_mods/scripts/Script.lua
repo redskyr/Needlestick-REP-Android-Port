@@ -27,93 +27,49 @@ function onCreate()
 end
 
 function onCreatePost()
-	if songName == 'acupuncture' or songName == 'castoff' or songName == 'toykeeper' or songName == 'bad-end' then
-		makeLuaText('info', 'Dont Get ' .. (Max) .. (" Misses..") , 750, -35);
-   		setTextBorder('info', 2, '000000');
-   	 	setTextAlignment('info', 'right');
-    	setTextFont('info', font);
-   		setTextSize('info', 30.35);
-		setTextColor('info', '999999')
-		addLuaText('info')
-		setProperty('info.alpha', 1);
-		setProperty('info.y', 400);
-		doTweenAlpha('info', 'info', 0, 15, 'quintOut');
-		setProperty('scoreTxt.y', 12);
-	end
 	if getPropertyFromClass('ClientPrefs', 'downScroll') == true then
 		setProperty('scoreTxt.y', 32);
 		setProperty('healthBar.y', 8);
-		else if getPropertyFromClass('ClientPrefs', 'downScroll') == false then
-			setProperty('scoreTxt.y', 660);
-			setProperty('healthBar.y', 700);
-		end
+	else if getPropertyFromClass('ClientPrefs', 'downScroll') == false then
+		setProperty('scoreTxt.y', 660);
+		setProperty('healthBar.y', 700);
+	end
 	end
 end
 
---[[function onBeatHit()
-	if curBeat == 1 then
-		doTweenAlpha('info', 'info', 1, 0.8, 'quintOut');
-	elseif curBeat == 10 then
-		doTweenAlpha('info', 'info', 0.001, 2, 'quintOut');
-	function onSongStart()
-		if songName == 'acupuncture' then
-	if getProperty('songMisses') > 0 then
-		loadSong('toykeeper', 2)
-	end
-	function onSongEnd()
-		if isStoryMode then		
-			if songName == 'acupuncture' then
-				if getProperty('songMisses') > 30 then
+function onBeatHit()
+	if songName == 'castoff' then
+--Luego arreglo esto, Reminder
+		if getProperty('curBeat') == 32 then
+			setPropertyFromGroup('opponentStrums',0,'alpha',0)
+			setPropertyFromGroup('opponentStrums',1,'alpha',0)
+			setPropertyFromGroup('opponentStrums',2,'alpha',0)
+			setPropertyFromGroup('opponentStrums',3,'alpha',0)
+
+			setPropertyFromGroup('playerStrums',0,'alpha',0)
+			setPropertyFromGroup('playerStrums',1,'alpha',0)
+			setPropertyFromGroup('playerStrums',2,'alpha',0)
+			setPropertyFromGroup('playerStrums',3,'alpha',0)
+
 			
-					loadSong('bad-end', 2);
-					return Function_Stop;
-				end
-		end 
-		return Function_Continue;
-		end
-	end]]
-	function onBeatHit()
-		if songName == 'castoff' then
-	--Luego arreglo esto, Reminder
-			if getProperty('curBeat') == 32 then
-				setPropertyFromGroup('opponentStrums',0,'alpha',0)
-				setPropertyFromGroup('opponentStrums',1,'alpha',0)
-				setPropertyFromGroup('opponentStrums',2,'alpha',0)
-				setPropertyFromGroup('opponentStrums',3,'alpha',0)
-	
-				setPropertyFromGroup('playerStrums',0,'alpha',0)
-				setPropertyFromGroup('playerStrums',1,'alpha',0)
-				setPropertyFromGroup('playerStrums',2,'alpha',0)
-				setPropertyFromGroup('playerStrums',3,'alpha',0)
-	
-				
-				
-			   elseif getProperty('curBeat') == 38 then
-				setPropertyFromGroup('playerStrums',0,'alpha',1)
-				setPropertyFromGroup('playerStrums',1,'alpha',1)
-				setPropertyFromGroup('playerStrums',2,'alpha',1)
-				setPropertyFromGroup('playerStrums',3,'alpha',1)
-	
-				setPropertyFromGroup('opponentStrums',0,'alpha',1)
-				setPropertyFromGroup('opponentStrums',1,'alpha',1)
-				setPropertyFromGroup('opponentStrums',2,'alpha',1)
-				setPropertyFromGroup('opponentStrums',3,'alpha',1)
 			
-			elseif getProperty('curBeat') == 232 then
-				doTweenAlpha('hudAlpha', 'camHUD', 0, 0.2, 'quintOut');
+			elseif getProperty('curBeat') == 38 then
+			setPropertyFromGroup('playerStrums',0,'alpha',1)
+			setPropertyFromGroup('playerStrums',1,'alpha',1)
+			setPropertyFromGroup('playerStrums',2,'alpha',1)
+			setPropertyFromGroup('playerStrums',3,'alpha',1)
+
+			setPropertyFromGroup('opponentStrums',0,'alpha',1)
+			setPropertyFromGroup('opponentStrums',1,'alpha',1)
+			setPropertyFromGroup('opponentStrums',2,'alpha',1)
+			setPropertyFromGroup('opponentStrums',3,'alpha',1)
 		
-			elseif getProperty('curBeat') == 238 then
-				doTweenAlpha('hudAlpha', 'camHUD', 1, 0.9, 'quintOut');
-				--acupuncture
-			end
-		end
-	end
-function noteMiss()
-	if songName == 'acupuncture' or songName == 'castoff' or songName == 'Toykeeper' or songName == 'bad-end' then
-		if getProperty('songMisses') == Max then
-			setProperty('health', getProperty('health')-200);
-		elseif getProperty('songMisses')  > 0 then
-			staticBOP()
+		elseif getProperty('curBeat') == 232 then
+			doTweenAlpha('hudAlpha', 'camHUD', 0, 0.2, 'quintOut');
+	
+		elseif getProperty('curBeat') == 238 then
+			doTweenAlpha('hudAlpha', 'camHUD', 1, 0.9, 'quintOut');
+			--acupuncture
 		end
 	end
 end
@@ -161,20 +117,5 @@ end
 function onUpdate()
 	if getProperty('songMisses') > 25 then
 		cameraShake("hud", 0.002, 0.4);
-	end
-end
-
-function onGameOver()
-	if  getProperty('songMisses') == Max then
-			setPropertyFromClass('GameOverSubstate', 'loopSoundName', 'Toykeeper'); --put in mods/music/
-			setPropertyFromClass('GameOverSubstate', 'deathSoundName', 'Laugh');
-			setPropertyFromClass('GameOverSubstate', 'characterName', 'bfITSNOTYOU'); --Character json file for the death animation
-			setProperty('fx.alpha', 0.8)
-    end
-end
-
-function onNoteMiss()
-	if getProperty('songMisses') > 0 then
-		setProperty('health', getProperty('health')-200);
 	end
 end

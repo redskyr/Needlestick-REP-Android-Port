@@ -50,9 +50,20 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		Conductor.songPosition = 0;
 
-		boyfriend = new Boyfriend(x, y, characterName);
+		switch(characterName){
+			case 'bfstring-dead':
+				boyfriend = new Boyfriend(300, 0, 'bfstring-dead');
+				boyfriend.scrollFactor.set();
+				//boyfriend.screenCenter(X);
+				FlxG.camera.shake(0.005, 0.7);
+			default:
+				boyfriend = new Boyfriend(x, y, characterName);
+		}
 		boyfriend.x += boyfriend.positionArray[0];
 		boyfriend.y += boyfriend.positionArray[1];
+		if(PlayState.redDeath){
+			boyfriend.color = 0xFFA30000;
+		}
 		add(boyfriend);
 
 		camFollow = new FlxPoint(boyfriend.getGraphicMidpoint().x, boyfriend.getGraphicMidpoint().y);
@@ -108,9 +119,11 @@ class GameOverSubstate extends MusicBeatSubstate
 		{
 			if(boyfriend.animation.curAnim.curFrame >= 12 && !isFollowingAlready)
 			{
-				FlxG.camera.follow(camFollowPos, LOCKON, 1);
-				updateCamera = true;
-				isFollowingAlready = true;
+				if(characterName != 'bfstring-dead'){
+					FlxG.camera.follow(camFollowPos, LOCKON, 1);
+					updateCamera = true;
+					isFollowingAlready = true;
+				}
 			}
 
 			if (boyfriend.animation.curAnim.finished && !playingDeathSound)

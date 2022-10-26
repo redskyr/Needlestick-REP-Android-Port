@@ -34,10 +34,6 @@ class NeedleSettingsSubState extends BaseOptionsMenu
 		title = 'Needlestick Settings';
 		rpcTitle = 'Needlestick Settings Menu'; //for Discord Rich Presence
 
-		/**
-	public static var menufilter:Bool = true;
-	public static var perlin:Bool = true;
-		**/
 		var option:Option = new Option('Trippy UI Filters',
 			"If unchecked, turns off the trippy filters in some parts of the game.",
 			'menufilter',
@@ -45,11 +41,11 @@ class NeedleSettingsSubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
-		var option:Option = new Option('Perlin Filters',
-			'If unchecked, turns off the perlin filters.',
-			'perlin',
+		var option:Option = new Option('Optimized Filters',
+			'If checked, turns on the optimization for the filters so the game runs better.',
+			'perlinOptimized',
 			'bool',
-			true);
+			false);
 		addOption(option);
 		super();
 	}

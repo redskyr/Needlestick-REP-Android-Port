@@ -12,6 +12,7 @@ class ClientPrefs {
 	public static var freeplayUnlocked:Bool = false;
 
 	//options stuff
+	public static var perlinOptimized:Bool = false;
 	public static var menufilter:Bool = true;
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
@@ -109,6 +110,7 @@ class ClientPrefs {
 		FlxG.save.data.freeplayUnlocked = freeplayUnlocked;
 
 		//options stuff
+		FlxG.save.data.perlinOptimized = perlinOptimized;
 		FlxG.save.data.menufilter = menufilter;
 		FlxG.save.data.downScroll = downScroll;
 		FlxG.save.data.middleScroll = middleScroll;
@@ -168,6 +170,9 @@ class ClientPrefs {
 		}
 
 		//options stuff
+		if(FlxG.save.data.perlinOptimized != null){
+			perlinOptimized = FlxG.save.data.perlinOptimized;
+		}
 		if(FlxG.save.data.menufilter != null) {
 			menufilter = FlxG.save.data.menufilter;
 		}
