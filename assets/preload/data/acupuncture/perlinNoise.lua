@@ -1,10 +1,10 @@
 -----------SETTINGS-----------
 local resMultiplier = 1
-local resX = 64*resMultiplier
+local resX = 32*resMultiplier
 local resY = 36*resMultiplier
 local genFramerate = 9
 
-local smoothness = 60
+local smoothness = 50
 local blendMode = 'add'
 ------------------------------
 
