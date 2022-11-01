@@ -41,6 +41,8 @@ class MainMenuState extends MusicBeatState
 	var bgneedle:FlxObject;
 	var hitneedle:FlxObject;
 
+	var bopcount:Int = 0;
+
 	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
 
@@ -202,6 +204,14 @@ class MainMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+
+		if (bopcount == 5)
+		{
+			FlxTween.tween(bgneedle, {alpha: 0}, 0.4);
+			FlxTween.tween(hitneedle, {alpha: 0}, 0.001);
+			hitneedle.x = 10020; //Yeah.
+		}
+
 		if (FlxG.sound.music.volume < 0.8)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
@@ -213,6 +223,8 @@ class MainMenuState extends MusicBeatState
 		if(FlxG.mouse.justPressed && FlxG.mouse.overlaps(hitneedle))
 			{
 				FlxG.sound.play(Paths.sound('bop'));
+				bopcount ++;
+				trace(":: " + bopcount);
 			}
 		if (!selectedSomethin)
 		{

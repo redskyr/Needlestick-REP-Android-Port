@@ -18,10 +18,8 @@ import flixel.tweens.FlxEase;
 import flixel.addons.effects.chainable.FlxShakeEffect;
 import flixel.addons.display.FlxBackdrop;
 import flash.system.System;
-#if MODS_ALLOWED
 import sys.FileSystem;
 import sys.io.File;
-#end
 import lime.utils.Assets;
 
 using StringTools;
@@ -35,6 +33,7 @@ class GhostState extends MusicBeatState
 	var noootext:FlxText;
 
     var crosshair:FlxSprite;
+	var sky2:FlxSprite;
 
 	var sky:FlxBackdrop;
     var titlestatebg:FlxBackdrop;
@@ -92,6 +91,19 @@ class GhostState extends MusicBeatState
 			sky.y = -100;
 			sky.antialiasing = false;
 			add(sky);
+			
+			sky2 = new FlxSprite(55, 50);
+			sky2.frames = Paths.getSparrowAtlas('ghost/glitchanim');
+			//sky2 = new FlxSprite(Paths.image("ghost/glitchanim"), 0.2, 0, true, true);
+			sky2.animation.addByPrefix("idle", " glitcheff", 24, true);
+			sky2.scale.set(4, 7);
+			sky2.alpha = 0.3;
+			sky2.updateHitbox();
+			sky2.screenCenter();
+			sky2.antialiasing = false;
+			add(sky2);
+			
+			sky2.animation.play("idle", true);
 		}
 
 		super.create();
@@ -114,7 +126,9 @@ class GhostState extends MusicBeatState
 			FlxG.sound.playMusic(Paths.music('ghost'), 1, true);
 			icontext2.visible = true;
 			icontext.visible = false;
-			FlxG.camera.shake(1, 1);
+			ytext.x = 2000;
+			noootext.x = 2000;
+			FlxG.camera.shake(0.3, 0.3);
 		}
 
 		if (FlxG.mouse.overlaps(noootext)) {

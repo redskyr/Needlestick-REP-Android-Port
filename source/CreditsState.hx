@@ -99,7 +99,7 @@ class CreditsState extends MusicBeatState
 			['MajorasMax_',			'majoras',			'Composer\n"Im gonna die slowly	"',									'https://twitter.com/MajorasMax',		'4494E6'],
 			['Slithy',	'slithy',						'Charter/Coder\n"Yes, I did program the rest of this mod on a crappy laptop."',			'https://www.youtube.com/c/TheSlithyGamer4evr',	'389A58'],
 			['Drawpant',			'drawpant',			'Artist/Animator\n"Friday Night Rayman God"',																'https://twitter.com/DrawPant',			'AA32FE'],
-			['Smalltalk',		'smalltalk',			'Additional Programmer!\n"Yeah, I will add a quote soon"',										'https://twitter.com/FNF_0Disruption',			'4494E6'],
+			['Smalltalk',		'smalltalk',			'Additional Programmer!\n"yung venuz, PLAY VS YV"',										'https://twitter.com/FNF_0Disruption',			'4494E6'],
 			[''],
 			['Special Thanks'],
 			['Rotty',			'rotty',				'Ex-Charter',													'https://twitter.com/RottySC2',			'4494E6'],
