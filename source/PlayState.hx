@@ -1032,6 +1032,12 @@ class PlayState extends MusicBeatState
 				FlxTween.tween(missMechText, {alpha: 0}, 15, {ease: FlxEase.quintOut});
 		}
 
+		#if android
+		addAndroidControls();	
+		androidControls.visible = true;	
+		#end	
+
+
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
