@@ -45,8 +45,8 @@ class WarningState extends MusicBeatState {
 		infoText = new FlxText(0, 100, FlxG.width,
 			"WARNING\n"
 			+ "THIS MOD HAS SOME TRIPPY FILTERS THAT MIGHT BE SENSITIVE TO SOME PEOPLE"
-			+ "\nPRESS ENTER TO TOGGLE ON OR OFF THE FILTERS"
-            + "\nPRESS SPACE TO CONTINUE",
+			+ "\nPRESS A TO TOGGLE ON OR OFF THE FILTERS"
+            + "\nPRESS B TO CONTINUE",
 			32);
         infoText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         infoText.alpha = 1;
@@ -57,11 +57,15 @@ class WarningState extends MusicBeatState {
         selectionText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		selectionText.screenCenter(X);
 		add(selectionText);
-        super.create();
+        #if android
+	    addVirtualPad(NONE, A_B);
+	    #end
+
+	    super.create();
     }
 
 	override function update(elapsed:Float) {
-        if(FlxG.keys.justPressed.ENTER && !cooldown) {
+        if(controls.ACCEPT && !cooldown) {
             if(!curSelected) {
                 trace("yeah");
                 ClientPrefs.menufilter = true;
@@ -80,7 +84,7 @@ class WarningState extends MusicBeatState {
                 cooldown = false;
             });
         }
-        if(FlxG.keys.justPressed.SPACE) {
+        if(controls.BACK) {
             ClientPrefs.showWarningScreen = false;
 
             var warningSave:FlxSave = new FlxSave();
