@@ -311,15 +311,8 @@ class PlayState extends MusicBeatState
 	public static var redDeath = false;
 
 	override public function create()
-	switch (curSong.toLowerCase())
-{
-	case 'castoff':
-		playCutscene('Needlesick_Cutscene.mp4');
-	case 'song2':
-		playCutscene('song2scene.avi');
-	default:
-		startCountdown();
 }
+  {
 		Paths.clearStoredMemory();
 
 		switch(CoolUtil.difficultyString()){ //misses mech baybeeeeeee
