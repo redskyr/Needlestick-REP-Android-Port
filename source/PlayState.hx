@@ -320,7 +320,6 @@ class PlayState extends MusicBeatState
 	default:
 		startCountdown();
 }
-	{
 		Paths.clearStoredMemory();
 
 		switch(CoolUtil.difficultyString()){ //misses mech baybeeeeeee
