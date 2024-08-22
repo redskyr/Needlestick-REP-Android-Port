@@ -311,8 +311,8 @@ class PlayState extends MusicBeatState
 	public static var redDeath = false;
 
 	override public function create()
-}
-  {
+};
+  {;
 		Paths.clearStoredMemory();
 
 		switch(CoolUtil.difficultyString()){ //misses mech baybeeeeeee
