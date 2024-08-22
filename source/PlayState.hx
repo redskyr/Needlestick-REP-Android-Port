@@ -68,6 +68,29 @@ import openfl.filters.ShaderFilter;
 import sys.FileSystem;
 import sys.io.File;
 #end
+function playCutscene(name:String, atEndOfSong:Bool = false)
+{
+	inCutscene = true;
+	FlxG.sound.music.stop();
+
+	var video:VideoHandler = new VideoHandler();
+	video.finishCallback = function()
+	{
+		if (atEndOfSong)
+		{
+			if (storyPlaylist.length <= 0)
+				FlxG.switchState(new StoryMenuState());
+			else
+			{
+				SONG = Song.loadFromJson(storyPlaylist[0].toLowerCase());
+				FlxG.switchState(new PlayState());
+			}
+		}
+		else
+			startCountdown();
+	}
+	video.playVideo(Paths.video(name));
+}
 
 #if VIDEOS_ALLOWED
 import vlc.MP4Handler;
@@ -288,6 +311,15 @@ class PlayState extends MusicBeatState
 	public static var redDeath = false;
 
 	override public function create()
+	switch (curSong.toLowerCase())
+{
+	case 'castoff':
+		playCutscene('Needlesick_Cutscene.mp4');
+	case 'song2':
+		playCutscene('song2scene.avi');
+	default:
+		startCountdown();
+}
 	{
 		Paths.clearStoredMemory();
 
@@ -1461,6 +1493,8 @@ class PlayState extends MusicBeatState
 			FlxG.log.warn('Your dialogue file is badly formatted!');
 			if(endingSong) {
 				endSong();
+				if (SONG.song.toLowerCase() == 'castoff')
+	playCutscene('Needlesick_Cutscene.mp4', true);
 			} else {
 				startCountdown();
 			}
