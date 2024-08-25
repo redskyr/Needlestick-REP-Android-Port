@@ -310,7 +310,7 @@ class PlayState extends MusicBeatState
 	var missMechText:FlxText;
 	public static var redDeath = false;
 
-	override public function create()
+	override public function create();
 };
   {;
 		Paths.clearStoredMemory();
